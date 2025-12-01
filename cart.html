@@ -1,23 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>Cart</title>
+  <title>העגלה שלי – PÉDANT Cosmetic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* עיצוב ספציפי לעגלה */
+    .cart-page-title {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 32px;
+      font-family: "Playfair Display", serif;
+    }
+    .cart-actions {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      justify-content: flex-end;
+    }
+    .btn-checkout {
+      background-color: #000;
+      color: #fff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 24px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .btn-clear {
+      background-color: transparent;
+      color: #555;
+      padding: 12px 24px;
+      border: 1px solid #ccc;
+      border-radius: 24px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .cart-summary-box {
+        margin-top: 30px;
+        text-align: left; /* כדי שהמחיר יהיה בצד שמאל או ימין תלוי בעיצוב */
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 20px;
+        background: #f9f9f9;
+        border-radius: 10px;
+    }
+  </style>
 </head>
+
 <body>
 
   <div class="site-wrapper">
 
     <header>
       <div class="logo">
-        <img src="images/logo.png">
+        <img src="logo.png" alt="Pédant Cosmetic Logo">
       </div>
 
       <nav>
         <ul>
-          <li><a href="#home">HOME</a></li>
-          <li><a href="#gifts">GIFTS</a></li>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="catalog.html">CATALOG</a></li>
           <li><a href="about.html">ABOUT</a></li>
           <li><a href="#contact">CONTACT</a></li>
           <li><a href="login.html">LOGIN</a></li>
@@ -27,55 +73,49 @@
       </nav>
     </header>
 
-    <h2>Your Cart</h2>
+    <main>
+      <h1 class="cart-page-title">העגלה שלך</h1>
 
-    <div id="cart-items"></div>
+      <div id="cart-items"></div>
 
-    <button id="clear-cart">Clear Cart</button>
+      <div class="cart-summary-box">
+        סה"כ לתשלום: <span id="cart-subtotal">₪0</span>
+      </div>
 
-  </div>
+      <div class="cart-actions">
+        <button id="clear-cart" class="btn-clear">רוקן עגלה</button>
+        <button id="checkout-btn" class="btn-checkout">המשך לתשלום</button>
+      </div>
+    </main>
 
-  <script src="cart.js"></script>
     <footer class="site-footer">
-  <div class="footer-wrapper">
-
-    <!-- לוגו באמצע -->
-    <div class="footer-logo-area">
-      <img src="logo.png" class="footer-logo" alt="Pédant Cosmetic Logo">
-    </div>
-
-    <!-- קו הפרדה -->
-    <div class="footer-line"></div>
-
-    <!-- שתי העמודות עם קו אנכי -->
-    <div class="footer-columns">
-
-      <!-- עמודת הצהרות -->
-      <div class="footer-col-right" dir="rtl">
-        <p>הצהרת נגישות</p>
-        <p>הצהרת פרטיות</p>
+      <div class="footer-wrapper">
+        <div class="footer-logo-area">
+          <img src="logo.png" class="footer-logo" alt="Pédant Cosmetic Logo">
+        </div>
+        <div class="footer-line"></div>
+        <div class="footer-columns">
+          <div class="footer-col-right" dir="rtl">
+            <p>הצהרת נגישות</p>
+            <p>הצהרת פרטיות</p>
+          </div>
+          <div class="footer-middle-line"></div>
+          <div class="footer-col-left">
+            <p>pedantcosmetic@gmail.com</p>
+            <p>Tel: 0546429448</p>
+          </div>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/merav_lavie_pedant?igsh=NHlvdTgxNm9peXd6" target="_blank">
+            <img src="instagram.png" class="footer-instagram" alt="Instagram">
+          </a>
+        </div>
       </div>
-
-      <!-- קו ביניים אנכי -->
-      <div class="footer-middle-line"></div>
-
-      <!-- עמודת מייל + טלפון -->
-      <div class="footer-col-left">
-        <p>pedantcosmetic@gmail.com</p>
-        <p>Tel: 0546429448</p>
-      </div>
-
-    </div>
-
-    <!-- אייקון אינסטגרם במרכז -->
-    <div class="footer-social">
-      <a href="https://www.instagram.com/merav_lavie_pedant?igsh=NHlvdTgxNm9peXd6" target="_blank">
-        <img src="instagram.png" class="footer-instagram" alt="Instagram">
-      </a>
-    </div>
+    </footer>
 
   </div>
-</footer>
+
+  <script src="products.js"></script> <script src="cart.js"></script>
 
 </body>
 </html>

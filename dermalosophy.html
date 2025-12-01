@@ -5,6 +5,21 @@
   <title>dermalosophy Products</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .add-to-cart-btn {
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .add-to-cart-btn:hover {
+      background-color: #333;
+    }
+  </style>
 </head>
 
 <body>
@@ -33,48 +48,18 @@
       <h1 class="catalog-title">dermalosophy Products</h1>
       <p class="catalog-subtitle">מוצרי טיפוח מבית dermalosophy</p>
 
-      <div class="brand-products">
-        <div class="product-card">
-          <img src="dermalosophy Vitamin C.jpg" alt="Dermalosophy Product 1">
-          <h3>Vitamin C Serum</h3>
-          <p>סרום ויטמין C למראה עור זוהר ואחיד.</p>
-          <p class="price">250 ₪</p>
-        </div>
-
-        <div class="product-card">
-          <img src="dermalosophy2.jpg.webp" alt="Dermalosophy Product 2">
-          <h3>Calming Mask</h3>
-          <p>מסכת הרגעה לעור רגיש ואדמומי.</p>
-          <p class="price">230 ₪</p>
-        </div>
-          <div class="product-card">
-          <img src="dermalosophy3.jpg.webp" alt="Dermalosophy Product 3">
-          <h3>Eye Cream</h3>
-          <p>קרם עיניים.</p>
-          <p class="price">220 ₪</p>
-        </div>
-         <div class="product-card">
-          <img src="dermalosophy4.jpg.webp" alt="Dermalosophy Product 4">
-          <h3>Make up Blur</h3>
-          <p>מייקאפ תיקון  .</p>
-          <p class="price">300 ₪</p>
-        </div>
-          <div class="product-card">
-          <img src="dermalosophy5.jpg.webp" alt="Dermalosophy Product 5">
-          <h3>CLEANSER FOR ALL SKIN TYPES</h3>
-          <p>קצף ניקוי  .</p>
-          <p class="price">280 ₪</p>
-        </div>
-          <div class="product-card">
-          <img src="dermalosophy6.jpg.webp" alt="Dermalosophy Product 6">
-          <h3>BLOCK SPF 50 DEMI MAKE UP</h3>
-          <p>קרם לחות עם מקדם הגנה   .</p>
-          <p class="price">260 ₪</p>
-        </div>
-      </div>
+      <div class="brand-products"></div>
 
     </main>
 
   </div>
+
+  <script src="products.js"></script>
+  <script src="cart.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      renderProducts('dermalosophy');
+    });
+  </script>
 </body>
 </html>

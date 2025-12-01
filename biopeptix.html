@@ -5,6 +5,22 @@
   <title>Biopeptix Products</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* עיצוב בסיסי לכפתור הוספה לסל */
+    .add-to-cart-btn {
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .add-to-cart-btn:hover {
+      background-color: #333;
+    }
+  </style>
 </head>
 
 <body>
@@ -33,48 +49,19 @@
       <h1 class="catalog-title">Biopeptix Products</h1>
       <p class="catalog-subtitle">מוצרי טיפוח מבית Biopeptix</p>
 
-      <div class="brand-products">
-        <div class="product-card">
-          <img src="biopeptix1.jpg.webp" alt="Biopeptix Product 1">
-          <h3>Active Serum</h3>
-          <p>סרום פעיל מבוסס פפטידים לשיקום העור.</p>
-          <p class="price">290 ₪</p>
-        </div>
-
-        <div class="product-card">
-          <img src="biopeptix2.jpg.webp" alt="Biopeptix Product 2">
-          <h3>Hydra Cream</h3>
-          <p>קרם לחות אינטנסיבי לשימוש יומיומי.</p>
-          <p class="price">210 ₪</p>
-        </div>
-           <div class="product-card">
-          <img src="biopeptix3.jpg.webp" alt="Biopeptix Product 3">
-          <h3>Face Soap</h3>
-          <p>סבון פנים.</p>
-          <p class="price">290 ₪</p>
-        </div>
-            <div class="product-card">
-          <img src="biopeptix4.jpg.webp" alt="Biopeptix Product 4">
-          <h3>Soothing and Firming Serum</h3>
-          <p>סרום הרגעה ומיצוק.</p>
-          <p class="price">300 ₪</p>
-        </div>
-            <div class="product-card">
-          <img src="biopeptix5.jpg.webp" alt="Biopeptix Product 5">
-          <h3>3A Serum</h3>
-          <p>הגנה מפני אור כחול.</p>
-          <p class="price">350 ₪</p>
-        </div>
-            <div class="product-card">
-          <img src="biopeptix6.jpg.webp" alt="Biopeptix Product 6">
-          <h3>Pome-Peel</h3>
-          <p>פילינג חומצות פרי.</p>
-          <p class="price">360 ₪</p>
-        </div>
-      </div>
+      <div class="brand-products"></div>
 
     </main>
 
   </div>
+
+  <script src="products.js"></script>
+  <script src="cart.js"></script>
+  <script>
+    // הפעלת הפונקציה להצגת מוצרי ביופפטיקס
+    document.addEventListener("DOMContentLoaded", () => {
+      renderProducts('biopeptix');
+    });
+  </script>
 </body>
 </html>

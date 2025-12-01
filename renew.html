@@ -5,6 +5,21 @@
   <title>RENEW Products</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .add-to-cart-btn {
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .add-to-cart-btn:hover {
+      background-color: #333;
+    }
+  </style>
 </head>
 
 <body>
@@ -33,50 +48,18 @@
       <h1 class="catalog-title">RENEW Products</h1>
       <p class="catalog-subtitle">מוצרי טיפוח מבית RENEW</p>
 
-      <div class="brand-products">
-        <div class="product-card">
-          <img src="renew1.jpg" alt="Renew Product 1">
-          <h3>Energy Day Cream</h3>
-          <p>קרם יום אנרגטי להזנת העור והענקת לחות.</p>
-          <p class="price">220 ₪</p>
-        </div>
-
-        <div class="product-card">
-          <img src="renew2.jpg.png" alt="Renew Product 2">
-          <h3>Retinol Night Serum</h3>
-          <p>סרום לילה עם רטינול לשיפור מרקם העור.</p>
-          <p class="price">260 ₪</p>
-        </div>
-        <div class="product-card">
-          <img src="renew3.jpg.png" alt="Renew Product 3">
-          <h3> Comfort Glow Moisturizer</h3>
-          <p>קרם לחות נגד קמטים.</p>
-          <p class="price">260 ₪</p>
-        </div>
-         <div class="product-card">
-          <img src="renew4.jpg.png" alt="Renew Product 4">
-          <h3> Depigmenting Mask</h3>
-          <p>מסכת הבהרה.</p>
-          <p class="price">106 ₪</p>
-        </div>
-         <div class="product-card">
-          <img src="renew5.jpg.png" alt="Renew Product 5">
-          <h3> Drying Dermo Control</h3>
-          <p>תרחיף מייבש.</p>
-          <p class="price">79 ₪</p>
-        </div>
-           <div class="product-card">
-          <img src="renew6.jpg.png" alt="Renew Product 6">
-          <h3>  Neck & Decollete Firming</h3>
-          <p>קרם צוואר ממצק</p>
-          <p class="price">150 ₪</p>
-        </div>
-
-        <!-- תוסיפי כאן עוד כרטיסים של מוצרים לפי הצורך -->
-      </div>
+      <div class="brand-products"></div>
 
     </main>
 
   </div>
+
+  <script src="products.js"></script>
+  <script src="cart.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      renderProducts('renew');
+    });
+  </script>
 </body>
 </html>
