@@ -19,7 +19,13 @@ function addToCart(productId) {
   // שמירה חזרה לזיכרון
   localStorage.setItem("cart", JSON.stringify(cart));
 
-  alert(`המוצר ${product.name} נוסף לסל בהצלחה!`);
+  Swal.fire({
+    title: 'המוצר נוסף לסל!',
+    text: `הוספת את ${product.name} בהצלחה`,
+    icon: 'success',
+    confirmButtonText: 'המשך בקנייה',
+    confirmButtonColor: '#000' // צבע שחור שיתאים לאתר שלך
+  });
   
   // כאן אפשר להוסיף עדכון של אייקון העגלה אם תרצי בעתיד
 }
