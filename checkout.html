@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>Checkout</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="checkout-container">
+<h2>תהליך תשלום</h2>
+
+<div id="order-summary">
+<h3>סיכום הזמנה</h3>
+<ul id="summary-list"></ul>
+<p><b>סך הכול לתשלום:</b> <span id="total-price"></span> ₪</p>
+</div>
+
+<form id="checkout-form">
+<h3>פרטים אישיים</h3>
+
+<label>שם מלא</label>
+<input type="text" id="fullname" required>
+
+<label>אימייל</label>
+<input type="email" id="email" required>
+
+<label>כתובת</label>
+<input type="text" id="address" required>
+
+<button type="submit" class="checkout-btn">אישור תשלום</button>
+</form>
+</div>
+
+<script src="checkout.js"></script>
+</body>
+</html>

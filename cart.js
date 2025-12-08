@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartItemsEl = document.getElementById("cart-items");
   const subtotalEl = document.getElementById("cart-subtotal");
   const clearBtn = document.getElementById("clear-cart");
-  const checkoutBtn = document.getElementById("checkout-btn");
+
 
   // אם אנחנו לא בדף העגלה, הפונקציה renderCart לא צריכה לרוץ
   if (!cartItemsEl) return;
@@ -146,11 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  if(checkoutBtn) {
-      checkoutBtn.addEventListener("click", () => {
-        alert("This is a demo checkout 🙂\nבפרויקט הזה אין תשלום אמיתי, רק סימולציה.");
-      });
-  }
+
 
   renderCart();
 });
