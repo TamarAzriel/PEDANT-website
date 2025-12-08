@@ -19,16 +19,21 @@ function addToCart(productId) {
   // שמירה חזרה לזיכרון
   localStorage.setItem("cart", JSON.stringify(cart));
 
+ // Elegant English Popup
   Swal.fire({
-    title: 'המוצר נוסף לסל!',
-    text: `הוספת את ${product.name} בהצלחה`,
-    icon: 'success',
-    confirmButtonText: 'המשך בקנייה',
-    confirmButtonColor: '#000' // צבע שחור שיתאים לאתר שלך
+    title: 'Added to Cart',
+    text: `You have added ${product.name} to your cart.`,
+    icon: null, // ללא אייקון - למראה נקי ומינימליסטי
+    confirmButtonText: 'CONTINUE SHOPPING',
+    buttonsStyling: false, // מאפשר לנו להשתמש בעיצוב שלנו
+    customClass: {
+      popup: 'elegant-modal',
+      title: 'elegant-title',
+      htmlContainer: 'elegant-content',
+      confirmButton: 'elegant-btn'
+    }
   });
-  
-  // כאן אפשר להוסיף עדכון של אייקון העגלה אם תרצי בעתיד
-}
+  // כאן אפשר להוסיף עדכון של אייקון העגלה אם תרצי בעתי
 
 // פונקציה להצגת מוצרים בדף הקטלוג
 function renderProducts(brandFilter) {
