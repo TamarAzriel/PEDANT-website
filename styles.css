@@ -665,3 +665,68 @@ nav ul li {
   font-weight: bold;
   color: #000;
 }
+/* עיצוב מותאם להודעה הקופצת */
+.elegant-modal {
+  font-family: 'Playfair Display', serif !important;
+  border-radius: 0 !important; /* פינות ישרות */
+  padding: 40px !important;
+}
+
+.elegant-title {
+  font-size: 28px !important;
+  font-weight: 500 !important;
+  letter-spacing: 1px;
+  color: #000 !important;
+  margin-bottom: 10px !important;
+}
+
+.elegant-content {
+  font-family: 'Lato', sans-serif !important;
+  font-size: 16px !important;
+  color: #555 !important;
+}
+
+.elegant-btn {
+  border-radius: 0 !important; /* כפתור מרובע */
+  padding: 12px 30px !important;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 12px !important;
+}
+/* --- Elegant Popup Styles (Add to styles.css) --- */
+
+.elegant-modal {
+  border-radius: 0 !important; /* פינות ישרות למראה קלאסי */
+  padding: 3rem 2rem !important;
+}
+
+.elegant-title {
+  font-family: 'Playfair Display', serif !important; /* הפונט של הכותרות באתר */
+  color: #000 !important;
+  font-size: 26px !important;
+  text-transform: uppercase; /* כותרת באותיות גדולות */
+  letter-spacing: 1px;
+}
+
+.elegant-content {
+  font-family: 'Lato', sans-serif !important; /* הפונט של הטקסט באתר */
+  color: #555 !important;
+  font-size: 16px !important;
+  margin-top: 10px !important;
+}
+
+.elegant-btn {
+  font-family: 'Lato', sans-serif !important;
+  background-color: #000 !important;
+  color: #fff !important;
+  border-radius: 0 !important; /* כפתור מרובע */
+  padding: 15px 30px !important;
+  font-size: 12px !important;
+  letter-spacing: 2px;
+  text-transform: uppercase; /* טקסט כפתור באותיות גדולות */
+  box-shadow: none !important;
+}
+
+.elegant-btn:hover {
+  background-color: #333 !important;
+}
