@@ -2,11 +2,12 @@
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>Biopeptix Products</title>
+  <title>dermalosophy Products</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles.css">
+  
+  <link rel="stylesheet" href="styles.css?v=4">
+  
   <style>
-    /* עיצוב בסיסי לכפתור הוספה לסל */
     .add-to-cart-btn {
       background-color: black;
       color: white;
@@ -45,26 +46,21 @@
     </header>
 
     <main class="catalog-page">
-      <h1 class="catalog-title">Biopeptix Products</h1>
-      <p class="catalog-subtitle">מוצרי טיפוח מבית Biopeptix</p>
-
-      <div class="brand-products"></div>
-
+      <h1 class="catalog-title">dermalosophy Products</h1>
+      <p class="catalog-subtitle">Advanced skincare by dermalosophy</p> <div class="brand-products"></div>
     </main>
 
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
   <script src="products.js"></script>
-
-  <script src="cart.js?v=2"></script>
+  
+  <script src="cart.js?v=4"></script> 
   
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      renderProducts('biopeptix');
+      renderProducts('dermalosophy');
     });
   </script>
-
 </body>
 </html>
