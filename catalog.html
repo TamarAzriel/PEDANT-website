@@ -2,76 +2,241 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <title>Product Catalog</title>
+  <title>Product Catalog - PÉDANT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles.css?v=1000">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* --- CSS פנימי לעקיפת בעיות Cache --- */
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300; /* טקסט דק לכל האתר */
+      background-color: #ffffff;
+      color: #333;
+    }
+
+    a { text-decoration: none; color: inherit; transition: opacity 0.3s; }
+    a:hover { opacity: 0.8; }
+
+    /* HEADER */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo img { height: 50px; width: auto; }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: #000;
+    }
+
+    /* CATALOG PAGE STYLES */
+    .catalog-page {
+      max-width: 1200px;
+      margin: 60px auto 100px;
+      padding: 0 20px;
+    }
+
+    .catalog-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 400; /* כותרת דקה */
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      color: #000;
+    }
+
+    .catalog-subtitle {
+      text-align: center;
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 80px;
+    }
+
+    /* GRID LAYOUT */
+    .brand-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      justify-content: center;
+    }
+
+    /* CARD DESIGN */
+    .brand-link {
+      display: block;
+      height: 100%;
+    }
+
+    .brand-card {
+      background-color: #f9f9f9; /* הרקע האפור שרצית */
+      border-radius: 20px;       /* פינות עגולות */
+      padding: 40px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      text-align: left; /* יישור לשמאל */
+    }
+
+    .brand-link:hover .brand-card {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      background-color: #fff;
+    }
+
+    .brand-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: contain;
+      margin-bottom: 30px;
+      mix-blend-mode: multiply; /* משתלב עם הרקע */
+      align-self: center;
+    }
+
+    .card-info {
+      margin-top: auto; /* דוחף את הטקסט למטה אם התמונה קצרה */
+    }
+
+    .brand-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 400; /* כותרת דקה */
+      color: #000;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+
+    .brand-card p {
+      font-size: 15px;
+      font-weight: 300; /* טקסט דק */
+      line-height: 1.6;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    /* PILL BUTTON */
+    .fake-btn {
+      display: block;
+      width: 100%;
+      padding: 12px 0;
+      border: 1px solid #ccc; /* מסגרת דקה ואפורה */
+      border-radius: 50px;    /* כפתור גלולה */
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #888;
+      transition: all 0.3s;
+    }
+
+    .brand-link:hover .fake-btn {
+      border-color: #000;
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* FOOTER (Minimal) */
+    footer {
+      text-align: center;
+      padding: 50px 0;
+      border-top: 1px solid #eee;
+      margin-top: 50px;
+    }
+  </style>
 </head>
 
 <body>
-  <div class="site-wrapper">
 
-    <header>
-      <div class="logo">
-        <img src="logo.png" alt="Pédant Cosmetic Logo" style="height:60px;">
-      </div>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Pédant Cosmetic Logo">
+    </div>
 
-      <nav>
-        <ul>
-          <li><a href="index.html">HOME</a></li>
-          <li><a href="catalog.html">CATALOG</a></li>
-          <li><a href="about.html">ABOUT</a></li>
-          <li><a href="#contact">CONTACT</a></li>
-          <li><a href="login.html">LOGIN</a></li>
-          <li><a href="signup.html">SIGN UP</a></li>
-          <li><a href="cart.html"><img src="cart.png" class="cart-icon"></a></li>
-        </ul>
-      </nav>
-    </header>
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="catalog.html">CATALOG</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="cart.html">CART</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main class="catalog-page">
+  <div class="catalog-page">
+    <h1 class="catalog-title">Product Categories</h1>
+    <p class="catalog-subtitle">Curated Skincare Collections</p>
 
-      <h1 class="catalog-title">Product Categories</h1>
-      <p class="catalog-subtitle">View our products by category</p>
+    <div class="brand-cards">
 
-      <div class="brand-cards">
-
-        <a href="dermalosophy.html" class="brand-link">
-          <div class="brand-card">
-            <img src="logo dermalosophy.jpg" alt="Dermalosophy logo">
-            <div class="card-info">
-              <h2>Dermalosophy</h2>
-              <p>Advanced cosmetic solutions for treating skin concerns, based on cutting-edge science and technology.</p>
-              <div class="fake-btn">Discover More</div>
-            </div>
+      <a href="dermalosophy.html" class="brand-link">
+        <div class="brand-card">
+          <img src="logo dermalosophy.jpg" alt="Dermalosophy">
+          <div class="card-info">
+            <h2>Dermalosophy</h2>
+            <p>Advanced formulas combining science & technology for effective skin solutions.</p>
+            <span class="fake-btn">Discover More</span>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <a href="biopeptix.html" class="brand-link">
-          <div class="brand-card">
-            <img src="logo biopeptix.jpg" alt="Biopeptix logo">
-            <div class="card-info">
-              <h2>Biopeptix</h2>
-              <p>Active bio-peptide series designed to renew, firm, and revitalize your skin's natural appearance.</p>
-              <div class="fake-btn">Discover More</div>
-            </div>
+      <a href="biopeptix.html" class="brand-link">
+        <div class="brand-card">
+          <img src="logo biopeptix.jpg" alt="Biopeptix">
+          <div class="card-info">
+            <h2>Biopeptix</h2>
+            <p>Bio-active peptides designed to revitalize, firm, and renew your skin texture.</p>
+            <span class="fake-btn">Discover More</span>
           </div>
-        </a>
+        </div>
+      </a>
 
-        <a href="renew.html" class="brand-link">
-          <div class="brand-card">
-            <img src="logo renew.jpg" alt="Renew logo">
-            <div class="card-info">
-              <h2>RENEW</h2>
-              <p>Professional skincare products that provide a glowing, healthy, and fresh look over time.</p>
-              <div class="fake-btn">Discover More</div>
-            </div>
+      <a href="renew.html" class="brand-link">
+        <div class="brand-card">
+          <img src="logo renew.jpg" alt="Renew">
+          <div class="card-info">
+            <h2>RENEW</h2>
+            <p>Professional treatments that deliver a long-lasting, healthy, and radiant glow.</p>
+            <span class="fake-btn">Discover More</span>
           </div>
-        </a>
+        </div>
+      </a>
 
-      </div>
-
-    </main>
-
+    </div>
   </div>
+
+  <footer>
+    <p>&copy; 2023 PÉDANT Cosmetic</p>
+  </footer>
+
 </body>
 </html>

@@ -561,22 +561,28 @@ nav ul li {
   direction: ltr; /* משאיר את העיצוב נקי ומיושר */
 }
 
+/* --- כותרות עמוד קטגוריה ומוצרים --- */
+
 .catalog-title {
   font-family: "Playfair Display", serif;
   font-size: 42px;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
+  text-align: center;
   color: #000;
   text-transform: uppercase;
+  letter-spacing: 2px; /* ריווח אותיות למראה יוקרתי */
+  margin-bottom: 15px;
+  font-weight: 400; /* חשוב מאוד: 400 זה המשקל הרגיל/דק של הפונט הזה */
 }
 
 .catalog-subtitle {
-  font-family: "Lato", sans-serif;
-  margin-bottom: 60px;
-  color: #777;
-  font-size: 16px;
-  letter-spacing: 2px;
+  text-align: center;
+  color: #777; /* אפור עדין */
+  font-size: 14px;
+  letter-spacing: 3px; /* ריווח גדול בין אותיות */
   text-transform: uppercase;
+  margin-bottom: 60px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300; /* חשוב מאוד: 300 זה פונט דק מאוד */
 }
 
 /* כרטיסיות מותגים - עיצוב יוקרתי ונקי */
