@@ -1,115 +1,201 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<title>Checkout</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Checkout - PÉDANT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css?v=1002"> <style>
+    /* עיצוב ספציפי לדף Checkout */
+    body {
+      background-color: #f9f9f9;
+    }
 
-<style>
+    .checkout-container {
+      max-width: 900px; /* רחב יותר כדי לתת מקום */
+      margin: 60px auto;
+      background: #ffffff;
+      padding: 50px;
+      border-radius: 0; /* פינות ישרות למראה יוקרתי */
+      box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
 
-.checkout-container {
-max-width: 650px;
-margin: 40px auto;
-background: #ffffff;
-padding: 35px;
-border-radius: 16px;
-box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-font-family: 'Playfair Display', serif;
-}
+    /* חלוקה ל-2 עמודות (במסכים גדולים) */
+    .checkout-col {
+      flex: 1;
+      min-width: 300px;
+    }
 
-.checkout-title {
-text-align: center;
-margin-bottom: 30px;
-font-size: 2rem;
-font-weight: bold;
-color: #000;
-}
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 15px;
+    }
 
-#order-summary {
-background: #fafafa;
-padding: 20px;
-border-radius: 12px;
-margin-bottom: 30px;
-border: 1px solid #eee;
-}
+    /* --- עיצוב הטופס --- */
+    #checkout-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
 
-#summary-list li {
-padding: 5px 0;
-font-size: 1rem;
-border-bottom: 1px solid #eee;
-}
+    #checkout-form label {
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 5px;
+      display: block;
+    }
 
-.total-price {
-margin-top: 15px;
-font-size: 1.2rem;
-font-weight: bold;
-}
+    #checkout-form input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 0; /* ישר */
+      font-size: 15px;
+      background-color: #fff;
+      transition: border-color 0.3s;
+    }
 
-#checkout-form {
-background: #fafafa;
-padding: 20px;
-border-radius: 12px;
-border: 1px solid #eee;
-display: flex;
-flex-direction: column;
-gap: 12px;
-}
+    #checkout-form input:focus {
+      outline: none;
+      border-color: #000;
+    }
 
-#checkout-form label {
-font-weight: bold;
-}
+    .checkout-btn {
+      background: #000;
+      color: #fff;
+      padding: 16px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 50px; /* כפתור גלולה */
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+      width: 100%;
+    }
 
-#checkout-form input {
-padding: 10px;
-border-radius: 6px;
-border: 1px solid #ccc;
-font-size: 1rem;
-}
+    .checkout-btn:hover {
+      background: #333;
+      transform: translateY(-2px);
+    }
 
-.checkout-btn {
-background: #000;
-color: #fff;
-padding: 12px 18px;
-margin-top: 10px;
-border: none;
-border-radius: 8px;
-font-size: 1.1rem;
-cursor: pointer;
-transition: 0.2s ease-in-out;
-}
+    /* --- עיצוב סיכום הזמנה (עם תמונות) --- */
+    #order-summary {
+      background: #fcfcfc;
+      padding: 30px;
+      border: 1px solid #eee;
+    }
 
-.checkout-btn:hover {
-background: #333;
-}
+    /* פריט ברשימה */
+    .summary-item {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #f0f0f0;
+      align-items: center;
+    }
 
-</style>
+    .summary-item:last-child {
+      border-bottom: none;
+    }
+
+    .summary-item img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain; /* שומר על פרופורציות */
+      border: 1px solid #f0f0f0;
+      padding: 5px;
+      background: #fff;
+    }
+
+    .item-details {
+      flex: 1;
+    }
+
+    .item-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      color: #000;
+      margin-bottom: 5px;
+    }
+
+    .item-qty {
+      font-size: 13px;
+      color: #777;
+    }
+
+    .item-price {
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .total-row {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 2px solid #000;
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
+      font-weight: bold;
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
 </head>
 <body>
+
 <div class="checkout-container">
-<h2>תהליך תשלום</h2>
+  
+  <div class="checkout-col">
+    <h2>Billing Details</h2>
+    <form id="checkout-form">
+      <div>
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" placeholder="e.g. Jane Doe" required>
+      </div>
 
-<div id="order-summary">
-<h3>סיכום הזמנה</h3>
-<ul id="summary-list"></ul>
-<p><b>סך הכול לתשלום:</b> <span id="total-price"></span> ₪</p>
+      <div>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="e.g. jane@example.com" required>
+      </div>
+
+      <div>
+        <label for="address">Shipping Address</label>
+        <input type="text" id="address" placeholder="Street, City, Zip Code" required>
+      </div>
+
+      <button type="submit" class="checkout-btn">Place Order</button>
+    </form>
+  </div>
+
+  <div class="checkout-col">
+    <div id="order-summary">
+      <h2>Your Order</h2>
+      <div id="summary-list">
+        </div>
+      
+      <div class="total-row">
+        <span>Total:</span>
+        <span id="total-price">0 NIS</span>
+      </div>
+    </div>
+  </div>
+
 </div>
 
-<form id="checkout-form">
-<h3>פרטים אישיים</h3>
+<script src="checkout.js?v=2"></script> 
 
-<label>שם מלא</label>
-<input type="text" id="fullname" required>
-
-<label>אימייל</label>
-<input type="email" id="email" required>
-
-<label>כתובת</label>
-<input type="text" id="address" required>
-
-<button type="submit" class="checkout-btn">אישור תשלום</button>
-</form>
-</div>
-
-<script src="checkout.js"></script>
 </body>
 </html>

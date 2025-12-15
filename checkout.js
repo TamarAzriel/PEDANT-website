@@ -1,54 +1,72 @@
+// checkout.js - מעודכן עם תמונות ואנגלית
 
-// שלב 1: שליפת הסל מה-localStorage
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. שליפת הסל מה-localStorage
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-const summaryList = document.getElementById("summary-list");
-const totalPriceElement = document.getElementById("total-price");
+    const summaryList = document.getElementById("summary-list");
+    const totalPriceElement = document.getElementById("total-price");
 
-let total = 0;
+    let total = 0;
 
-// עוברים על כל מוצר בסל
-cart.forEach(item => {
-const li = document.createElement("li");
+    // ניקוי הרשימה לפני הבנייה
+    if (summaryList) summaryList.innerHTML = "";
 
-// חשוב: לעדכן שמות שדות לפי מה שיש לך
-// למשל item.productName במקום item.name אם זה השם אצלך
-const name = item.name;
-const price = Number(item.price); // דואגים שיהיה מספר
-const qty = item.quantity ? item.quantity : 1;
+    // 2. מעבר על המוצרים ובניית HTML לכל אחד
+    cart.forEach(item => {
+        const price = Number(item.price);
+        const qty = item.quantity ? item.quantity : 1;
+        const itemTotal = price * qty;
+        total += itemTotal;
 
-li.textContent = `${name} × ${qty} - ${price * qty} ₪`;
-summaryList.appendChild(li);
+        // יצירת האלמנטים
+        const itemDiv = document.createElement("div");
+        itemDiv.classList.add("summary-item");
 
-total += price * qty;
-});
+        // בדיקה אם יש תמונה, אחרת נשתמש בתמונה ברירת מחדל או אייקון
+        // הערה: וודאי שהנתיב לתמונות נכון (באותה תיקייה)
+        const imgSrc = item.image ? item.image : 'logo.png'; 
 
-// מציגים את הסכום הכולל
-totalPriceElement.textContent = total;
+        itemDiv.innerHTML = `
+            <img src="${imgSrc}" alt="${item.name}">
+            <div class="item-details">
+                <div class="item-name">${item.name}</div>
+                <div class="item-qty">Qty: ${qty}</div>
+            </div>
+            <div class="item-price">${itemTotal} NIS</div>
+        `;
 
+        summaryList.appendChild(itemDiv);
+    });
 
-// שלב 2: טיפול בשליחה של טופס ה-Checkout
-const checkoutForm = document.getElementById("checkout-form");
+    // עדכון הסכום הכולל
+    if (totalPriceElement) {
+        totalPriceElement.textContent = total + " NIS";
+    }
 
-checkoutForm.addEventListener("submit", function (event) {
-event.preventDefault(); // לא מרענן את העמוד
+    // 3. טיפול בטופס (סימולציה)
+    const checkoutForm = document.getElementById("checkout-form");
+    if (checkoutForm) {
+        checkoutForm.addEventListener("submit", function (event) {
+            event.preventDefault();
 
-const fullname = document.getElementById("fullname").value;
-const email = document.getElementById("email").value;
-const address = document.getElementById("address").value;
+            const fullname = document.getElementById("fullname").value;
+            const submitBtn = checkoutForm.querySelector("button");
+            
+            // אפקט כפתור נטען
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = "Processing...";
+            submitBtn.disabled = true;
 
-// כאן אפשר לעשות ולידציות נוספות אם רוצים
-
-// הודעת תשלום דמה
-alert(
-"This is a demo checkout 😊\n" +
-"בפרויקט הזה אין תשלום אמיתי, רק סימולציה.\n\n" +
-"תודה " + fullname + " על ההזמנה מ-PÉDANT!"
-);
-
-// מנקים את הסל אחרי "תשלום"
-localStorage.removeItem("cart");
-
-// חזרה לדף הבית / לדף תודה
-window.location.href = "index.html";
+            setTimeout(() => {
+                alert(`Thank you, ${fullname}!\nYour order has been placed successfully.`);
+                
+                // ריקון הסל
+                localStorage.removeItem("cart");
+                
+                // חזרה לדף הבית
+                window.location.href = "index.html";
+            }, 1500);
+        });
+    }
 });
