@@ -553,8 +553,6 @@ nav ul li {
 
 /* ===== CATALOG PAGE ===== */
 
-/* ===== CATALOG PAGE ===== */
-
 .catalog-page {
   max-width: 1200px;
   margin: 0 auto;
@@ -599,7 +597,7 @@ nav ul li {
 .brand-card {
   width: 300px;
   padding: 0;
-  border: none; /* ביטול המסגרת האפורה */
+  border: none;
   background-color: transparent;
   cursor: pointer;
   text-align: center;
@@ -609,10 +607,10 @@ nav ul li {
 /* התמונה של המותג */
 .brand-card img {
   width: 100%;
-  height: 280px; /* תמונה גדולה ומרשימה יותר */
+  height: 280px;
   object-fit: contain;
   margin-bottom: 20px;
-  filter: grayscale(100%); /* אופציה: הופך לשחור לבן למראה נקי */
+  filter: grayscale(100%); /* שחור לבן למראה נקי */
   transition: filter 0.3s ease, transform 0.3s ease;
 }
 
@@ -643,33 +641,33 @@ nav ul li {
 
 /* אפקטים במעבר עכבר */
 .brand-link:hover .brand-card img {
-  filter: grayscale(0%); /* מחזיר צבע במעבר עכבר */
-  transform: scale(1.03); /* הגדלה עדינה */
+  filter: grayscale(0%); /* מחזיר צבע */
+  transform: scale(1.03);
 }
 
 .brand-link:hover .brand-card h2::after {
-  width: 100%; /* הקו נפתח */
+  width: 100%;
 }
 
-/* --- רשימת המוצרים (עיצוב מעודכן גם לכרטיסי המוצר) --- */
+/* --- רשימת המוצרים (כרטיסי מוצר) --- */
 .brand-products {
   display: flex;
   gap: 30px;
   flex-wrap: wrap;
-  justify-content: center; /* מירכוז המוצרים */
+  justify-content: center;
 }
 
 .product-card {
   width: 260px;
   padding: 20px;
-  border: 1px solid transparent; /* גבול שקוף */
+  border: 1px solid transparent;
   background: #fff;
-  text-align: center; /* מירכוז הטקסט */
+  text-align: center;
   transition: 0.3s;
 }
 
 .product-card:hover {
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* צל עדין מאוד */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 .product-card img {
@@ -690,7 +688,7 @@ nav ul li {
   color: #666;
   font-size: 14px;
   line-height: 1.5;
-  min-height: 40px; /* גובה אחיד לתיאור */
+  min-height: 40px;
 }
 
 .product-card .price {
@@ -706,7 +704,7 @@ nav ul li {
   color: #fff;
   border: 1px solid #000;
   padding: 10px 24px;
-  border-radius: 0; /* כפתור מרובע ואלגנטי */
+  border-radius: 0;
   margin-top: 15px;
   font-size: 12px;
   letter-spacing: 1px;
@@ -718,4 +716,45 @@ nav ul li {
 .add-to-cart-btn:hover {
   background-color: #fff;
   color: #000;
+}
+
+
+/* --- Elegant Popup Styles (עיצוב ההודעה הקופצת) --- */
+
+.elegant-modal {
+  border-radius: 0 !important;
+  padding: 3rem 2rem !important;
+  font-family: 'Playfair Display', serif !important;
+}
+
+.elegant-title {
+  font-family: 'Playfair Display', serif !important;
+  color: #000 !important;
+  font-size: 26px !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px !important;
+}
+
+.elegant-content {
+  font-family: 'Lato', sans-serif !important;
+  color: #555 !important;
+  font-size: 16px !important;
+  margin-top: 10px !important;
+}
+
+.elegant-btn {
+  font-family: 'Lato', sans-serif !important;
+  background-color: #000 !important;
+  color: #fff !important;
+  border-radius: 0 !important;
+  padding: 15px 30px !important;
+  font-size: 12px !important;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  box-shadow: none !important;
+}
+
+.elegant-btn:hover {
+  background-color: #333 !important;
 }
