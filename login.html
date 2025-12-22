@@ -24,8 +24,10 @@
           <li><a href="catalog.html">CATALOG</a></li>
           <li><a href="about.html">ABOUT</a></li>
           <li><a href="#contact">CONTACT</a></li>
-          <li><a href="login.html">LOGIN</a></li>
-          <li><a href="signup.html">SIGN UP</a></li>
+          <li id="nav-profile-item" style="display:none;"><a href="profile.html">PROFILE</a></li>
+          <li id="nav-login" style="display:none;"><a href="login.html">LOGIN</a></li>
+          <li id="nav-signup" style="display:none;"><a href="signup.html">SIGN UP</a></li>
+          <li id="nav-logout" style="display:none;"><a href="#" onclick="logout(event)">LOGOUT</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="cart.html"><img src="cart.png" class="cart-icon"></a></li>
   </ul>
@@ -36,15 +38,15 @@
     <section class="auth-section">
       <h2>Login</h2>
 
-      <form class="auth-form">
+      <form class="auth-form" id="login-form">
         <label>
           Email:
-          <input type="email" required>
+          <input type="email" id="login-email" required>
         </label>
 
         <label>
           Password:
-          <input type="password" required>
+          <input type="password" id="login-password" required>
         </label>
 
         <button type="submit">Login</button>
@@ -101,5 +103,6 @@
 
   </div>
 
+  <script src="auth.js"></script>
 </body>
 </html>

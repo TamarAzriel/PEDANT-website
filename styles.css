@@ -848,6 +848,119 @@ nav ul li {
   transition: color 0.3s;
 }
 
+/* --- PROFILE PAGE --- */
+
+.profile-section {
+  max-width: 600px;
+  margin: 60px auto;
+}
+
+.profile-container {
+  text-align: center;
+}
+
+.profile-container h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.profile-card {
+  background-color: #f7f7f7;
+  border-radius: 24px;
+  padding: 40px;
+  text-align: left;
+}
+
+.profile-info {
+  margin-bottom: 30px;
+}
+
+.profile-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.profile-field {
+  margin-bottom: 24px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 16px;
+}
+
+.profile-field label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.profile-field p {
+  font-size: 16px;
+  color: #222;
+  margin: 8px 0 0;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.btn-edit,
+.btn-logout {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 24px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.btn-edit {
+  background-color: #000;
+  color: #fff;
+}
+
+.btn-edit:hover {
+  background-color: #333;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.btn-logout {
+  background-color: transparent;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.btn-logout:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .profile-card {
+    padding: 24px;
+  }
+  
+  .profile-actions {
+    flex-direction: column;
+  }
+  
+  .btn-edit,
+  .btn-logout {
+    width: 100%;
+  }
+}
 .faq-question:hover {
   color: #555;
 }
