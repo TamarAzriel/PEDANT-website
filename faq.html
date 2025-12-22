@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"> <head>
+  <meta charset="utf-8">
+  <title>FAQ – PÉDANT Cosmetic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="site-wrapper">
+
+    <header>
+      <div class="logo">
+        <img src="logo.png" alt="Pédant Cosmetic Logo">
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="catalog.html">CATALOG</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+          <li><a href="login.html">LOGIN</a></li>
+          <li><a href="signup.html">SIGN UP</a></li>
+          <li><a href="cart.html"><img src="cart.png" class="cart-icon"></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="faq-section" dir="rtl"> <h1 class="faq-title">שאלות ותשובות נפוצות</h1>
+      
+      <div class="faq-container">
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>תוך כמה זמן מגיע המשלוח?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            זמן המשלוח הוא בדרך כלל בין 3 ל-5 ימי עסקים. אנו עושים את מירב המאמצים כדי שהמוצרים יגיעו אליך במהירות המרבית, ארוזים בקפידה.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>האם המוצרים מתאימים לעור רגיש?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            רוב המוצרים שלנו מותאמים למגוון סוגי עור, כולל עור רגיש. עם זאת, אנו ממליצים תמיד לקרוא את רשימת הרכיבים המלאה בכל דף מוצר ולהתייעץ איתנו במידת הצורך.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>כיצד ניתן לממש קוד קופון?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            ניתן להזין את קוד הקופון בעמוד "העגלה שלי" לפני המעבר לתשלום. יש להקליד את הקוד בשדה המיועד וללחוץ על "הפעל". ההנחה תתעדכן מיידית.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>מהי מדיניות ההחזרות?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            ניתן להחזיר מוצרים סגורים באריזתם המקורית תוך 14 יום מקבלת המשלוח, בהתאם לתקנון החברה. יש ליצור קשר עם שירות הלקוחות לתיאום ההחזרה.
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-wrapper">
+        <div class="footer-logo-area">
+          <img src="logo.png" class="footer-logo" alt="Pédant Cosmetic Logo">
+        </div>
+        <div class="footer-line"></div>
+        <div class="footer-columns">
+          <div class="footer-col-right" dir="rtl">
+            <p>הצהרת נגישות</p>
+            <p>הצהרת פרטיות</p>
+          </div>
+          <div class="footer-middle-line"></div>
+          <div class="footer-col-left">
+            <p>pedantcosmetic@gmail.com</p>
+            <p>Tel: 0546429448</p>
+          </div>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/merav_lavie_pedant?igsh=NHlvdTgxNm9peXd6" target="_blank">
+            <img src="instagram.png" class="footer-instagram" alt="Instagram">
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // סקריפט פשוט לפתיחת/סגירת שאלות
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.addEventListener('click', () => {
+        // סגירת כל האחרים אם רוצים (אופציונלי)
+        // document.querySelectorAll('.faq-item').forEach(i => { if(i!==item) i.classList.remove('active'); });
+        
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
