@@ -3,6 +3,20 @@
 // מסד נתונים דמוי-משתמשים (בפועל זה היה צריך להיות בשרת)
 let usersDatabase = JSON.parse(localStorage.getItem('usersDatabase')) || [];
 
+// הוספת משתמש לדוגמה לבדיקה (רק אם אין משתמשים)
+if (usersDatabase.length === 0) {
+  usersDatabase = [
+    {
+      name: "Test User",
+      email: "test@example.com",
+      password: "123456",
+      createdAt: new Date().toISOString()
+    }
+  ];
+  localStorage.setItem('usersDatabase', JSON.stringify(usersDatabase));
+  console.log('Test user created:', usersDatabase);
+}
+
 // בדיקה בטעינת הדף
 document.addEventListener('DOMContentLoaded', function() {
   updateNavBar();
@@ -48,11 +62,25 @@ function updateNavBar() {
 function handleLogin(event) {
   event.preventDefault();
   
-  const email = document.getElementById('login-email').value;
-  const password = document.getElementById('login-password').value;
+  console.log('Form submitted');
+  const emailInput = document.getElementById('login-email');
+  const passwordInput = document.getElementById('login-password');
+  
+  const email = emailInput.value.trim();
+  const password = passwordInput.value.trim();
+  
+  console.log('Email:', email, 'Password:', password);
+  console.log('Users in database:', usersDatabase);
+  
+  if (!email || !password) {
+    alert('אנא מלא את כל השדות!');
+    return;
+  }
   
   // חיפוש משתמש במסד הנתונים
   const user = usersDatabase.find(u => u.email === email && u.password === password);
+  
+  console.log('Found user:', user);
   
   if (user) {
     // התחברות מוצלחת
@@ -65,7 +93,7 @@ function handleLogin(event) {
     alert('ברוכים הבאים ' + user.name + '!');
     window.location.href = 'profile.html';
   } else {
-    alert('שגיאה: דוא"ל או סיסמה לא נכונים!');
+    alert('שגיאה: דוא"ל או סיסמה לא נכונים!\n\nאם אתה משתמש חדש, אנא התחבר תחילה דרך Sign Up');
   }
 }
 
@@ -73,9 +101,25 @@ function handleLogin(event) {
 function handleSignup(event) {
   event.preventDefault();
   
-  const name = document.getElementById('signup-name').value;
-  const email = document.getElementById('signup-email').value;
-  const password = document.getElementById('signup-password').value;
+  const nameInput = document.getElementById('signup-name');
+  const emailInput = document.getElementById('signup-email');
+  const passwordInput = document.getElementById('signup-password');
+  
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const password = passwordInput.value.trim();
+  
+  console.log('Signup attempt:', { name, email, password });
+  
+  if (!name || !email || !password) {
+    alert('אנא מלא את כל השדות!');
+    return;
+  }
+  
+  if (password.length < 6) {
+    alert('הסיסמה חייבת להיות לפחות 6 תווים!');
+    return;
+  }
   
   // בדיקה אם המשתמש כבר קיים
   const existingUser = usersDatabase.find(u => u.email === email);
@@ -96,6 +140,8 @@ function handleSignup(event) {
   // הוספת למסד הנתונים
   usersDatabase.push(newUser);
   localStorage.setItem('usersDatabase', JSON.stringify(usersDatabase));
+  
+  console.log('User registered successfully:', newUser);
   
   // התחברות אוטומטית
   const userToStore = {
