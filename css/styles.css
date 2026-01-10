@@ -1,3 +1,13 @@
+/* --- Parisian Luxury Theme --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  --paris-black: #1a1a1a;
+  --paris-grey: #f8f8f7;
+  --paris-gold: #c5a386; /* אופציונלי לשימוש עדין */
+  --border-color: #e5e5e0;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,1172 +16,198 @@
 
 body {
   font-family: "Lato", sans-serif;
-  background-color: #ffffff;
-  color: #222;
+  background-color: #fff;
+  color: var(--paris-black);
+  -webkit-font-smoothing: antialiased;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* --- Layout --- */
-
-.site-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 24px 32px 60px;
-}
-
-/* --- Header --- */
-
+/* --- Navigation Parisian Style --- */
 header {
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 40px;
-  position: relative;
-  z-index: 1000;
-  padding: 25px 40px;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 0 60px;
+  background: #fff;
+  border-bottom: 1px solid var(--paris-grey);
 }
 
-.logo {
-  font-family: "Playfair Display", serif;
-  letter-spacing: 0.35em;
-  font-size: 20px;
-}
-
-.logo span {
-  display: block;
-  font-family: "Lato", sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  margin-top: 4px;
+.logo img {
+  height: 50px;
+  letter-spacing: 0.2em;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 32px;
-  font-size: 13px;
-  letter-spacing: 0.18em;
+  gap: 45px;
   align-items: center;
 }
 
 nav a {
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: 5px 0;
-}
-
-nav a:hover::after,
-nav a:focus-visible::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 100%;
-  height: 1px;
-  background-color: #000;
-}
-
-/* --- Hero --- */
-
-.hero-card {
-  background-color: #f7f7f7;
-  border-radius: 40px;
-  display: flex;
-  align-items: stretch;
-  min-height: 420px;
-  overflow: hidden;
-}
-
-.hero-text {
-  flex: 1;
-  padding: 60px 70px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.subtitle {
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  margin-bottom: 18px;
-  color: #777;
-}
-
-.headline {
-  font-family: "Playfair Display", serif;
-  font-size: 28px;
+  font-size: 11px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  color: var(--paris-black);
+  font-weight: 400;
+  transition: opacity 0.3s;
 }
 
-.headline-underline {
-  width: 90px;
-  height: 1px;
-  background-color: #000;
-  margin: 12px 0 26px;
+nav a:hover {
+  opacity: 0.5;
 }
 
-.hero-text p {
-  font-size: 14px;
-  line-height: 1.7;
-  margin-bottom: 4px;
-  max-width: 380px;
-}
-
-.hero-button {
-  margin-top: 32px;
-}
-
-.hero-button button {
-  background-color: #f7f7f7;
-  border: 1px solid #c4c4c4;
-  border-radius: 30px;
-  padding: 10px 34px;
-  font-size: 13px;
-  cursor: pointer;
-  transition: background-color 0.2s, box-shadow 0.2s;
-}
-
-.hero-button button:hover {
-  background-color: #ffffff;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-}
-
-/* --- Image --- */
-
-.hero-image {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fafafa;
-  padding: 40px;
-}
-
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-/* --- Responsive --- */
-
-@media (max-width: 900px) {
-  header {
-    flex-direction: column;
-    gap: 16px;
-    align-items: flex-start;
-  }
-
-  .hero-card {
-    flex-direction: column;
-    border-radius: 24px;
-  }
-
-  .hero-text {
-    padding: 40px 28px;
-  }
-
-  .hero-image {
-    padding: 24px;
-  }
-}
-.logo img {
-  height: 48px;     /* גובה מומלץ */
-  width: auto;
-  display: block;
-}
-/* --- ABOUT --- */
-
-.about-section {
-  margin-top: 80px;
-}
-
-.about-text {
-  max-width: 850px;
-  margin: 0 auto 60px;
-  text-align: center;
-}
-
-.about-text h2 {
-  font-size: 26px;
-  margin-bottom: 24px;
-}
-
-.about-text p {
-  font-size: 16px;
-  line-height: 1.8;
-  margin-bottom: 8px;
-}
-
-/* כותרת BEHIND THE BRAND עם קווים */
-.about-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin: 40px auto 40px;
-  max-width: 900px;
-}
-
-.about-divider .line {
-  flex: 1;
-  height: 1px;
-  background-color: #b5b5b5;
-}
-
-.about-divider-title {
-  font-size: 12px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-}
-
-/* כרטיס תמונה מתחת לכותרת */
-.about-image-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 80px;
-}
-
-.about-image-card {
-  background-color: #f7f7f7;
-  border-radius: 32px;
-  padding: 40px;
-}
-
-.about-image-card img {
-  display: block;
-  max-width: 360px;
-  height: auto;
-}
-header {
-  direction: ltr;
-}
-/* AUTH PAGES (Login / Signup) */
-
-.auth-section {
-  max-width: 420px;
-  margin: 60px auto;
-  text-align: center;
-}
-
-.auth-section h2 {
-  font-size: 26px;
-  margin-bottom: 30px;
-}
-
-.auth-form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.auth-form label {
-  text-align: left;
-  font-size: 14px;
-}
-
-.auth-form input {
-  width: 100%;
-  padding: 10px 14px;
-  margin-top: 6px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-}
-
-.auth-form button {
-  margin-top: 12px;
-  padding: 12px;
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 24px;
-  font-size: 15px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.auth-form button:hover {
-  background-color: #333;
-}
-
-.auth-switch {
-  margin-top: 16px;
-  font-size: 14px;
-}
-
-.auth-switch a {
-  text-decoration: underline;
-}
-.hero-button button:active {
-  background-color: black;
-  color: white;
-}
-/* --- CART PAGE --- */
-
-.cart-section {
-  margin-top: 40px;
-}
-
-.cart-section h1 {
-  font-size: 28px;
-  margin-bottom: 8px;
-}
-
-.cart-subtitle {
-  font-size: 14px;
-  color: #777;
-  margin-bottom: 32px;
-}
-
-.cart-layout {
-  display: flex;
-  gap: 32px;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-
-/* רשימת מוצרים */
-
-.cart-items {
-  flex: 2;
-  min-width: 280px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.cart-item {
-  background-color: #f7f7f7;
-  border-radius: 24px;
-  padding: 16px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.cart-item-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.cart-item-name {
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.cart-item-price {
-  font-size: 14px;
-  color: #555;
-}
-
-.cart-item-remove {
-  border: none;
-  background: transparent;
-  font-size: 13px;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.cart-empty {
-  background-color: #fafafa;
-  border-radius: 24px;
-  padding: 28px 24px;
-  text-align: center;
-  font-size: 15px;
-}
-
-/* סיכום הזמנה */
-
-.cart-summary {
-  flex: 1;
-  min-width: 260px;
-  border-radius: 24px;
-  border: 1px solid #e3e3e3;
-  padding: 20px 24px;
-  background-color: #fdfdfd;
-}
-
-.cart-summary h2 {
-  font-size: 18px;
-  margin-bottom: 16px;
-}
-
-.cart-summary-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  font-size: 14px;
-}
-
-/* כפתורים כלליים לסל */
-
-.primary-btn {
-  width: 100%;
-  padding: 12px;
-  border-radius: 24px;
-  border: none;
-  background-color: #000;
-  color: #fff;
-  font-size: 15px;
-  cursor: pointer;
-  margin-bottom: 8px;
-  transition: background-color 0.2s, box-shadow 0.2s;
-}
-
-.primary-btn:hover {
-  background-color: #333;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
-
-.text-btn {
-  width: 100%;
-  padding: 8px;
-  border: none;
-  background: transparent;
-  font-size: 13px;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-/* רספונסיביות */
-
-@media (max-width: 900px) {
-  .cart-layout {
-    flex-direction: column;
-  }
-
-  .cart-summary {
-    order: -1; /* הסיכום יופיע מעל המוצרים במסך קטן */
-  }
-}
-/* --- FOOTER --- */
-
-/* FOOTER FIXED AND CLEAN */
-
-/* FOOTER FIXED AND CLEAN */
-
-.site-footer {
-  background-color: #f7f7f7;
-  padding: 50px 0 60px;
-  margin-top: 100px;
-  border-radius: 40px 40px 0 0;
-}
-
-/* --- FOOTER EXACT DESIGN --- */
-
-.site-footer {
-  background-color: #f7f7f7;
-  padding: 60px 0 50px;
-  margin-top: 80px;
-  border-radius: 40px 40px 0 0;
-}
-
-.footer-wrapper {
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.footer-logo-area img.footer-logo {
-  width: 130px; /* כמו בתמונה שלך */
-  margin-bottom: 20px;
-}
-
-.footer-line {
-  width: 100%;
-  height: 1px;
-  background-color: #d4d4d4;
-  margin: 20px 0 40px;
-}
-
-/* שתי העמודות */
-.footer-columns {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 70px;
-  margin-bottom: 30px;
-}
-
-/* עמודת הצהרות */
-.footer-col-right p {
-  margin: 8px 0;
-  font-size: 17px;
-}
-
-/* עמודת מייל/טלפון */
-.footer-col-left p {
-  margin: 8px 0;
-  font-size: 17px;
-}
-
-/* קו אנכי */
-.footer-middle-line {
-  width: 1px;
-  background-color: #bfbfbf;
-  height: 80px;
-}
-
-/* אינסטגרם */
-.footer-social {
-  margin-top: 15px;
-}
-
-.footer-instagram {
-  width: 42px;   /* להגדיל כמו בתמונה */
-  height: 42px;
-  cursor: pointer;
-}
-
-/* רספונסיביות */
-@media (max-width: 800px) {
-  .footer-columns {
-    flex-direction: column;
-    gap: 25px;
-  }
-  .footer-middle-line {
-    display: none;
-  }
-}
-
-nav ul li {
-  display: flex;
-  align-items: center;
-}
 .cart-icon {
-  width: 20px;
+  width: 18px;
   height: auto;
-  display: block;
 }
 
-
-/* ===== CATALOG PAGE ===== */
-
-.catalog-page {
-  max-width: 1200px;
+/* --- Catalog Page Elevation --- */
+.site-wrapper {
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 60px 20px;
-  text-align: center;
-  direction: ltr; /* משאיר את העיצוב נקי ומיושר */
+  padding: 80px 40px;
 }
 
-/* --- כותרות עמוד קטגוריה ומוצרים --- */
+.catalog-header {
+  text-align: center;
+  margin-bottom: 100px;
+}
 
 .catalog-title {
   font-family: "Playfair Display", serif;
-  font-size: 42px;
-  text-align: center;
+  font-size: 64px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
   color: #000;
-  text-transform: uppercase;
-  letter-spacing: 2px; /* ריווח אותיות למראה יוקרתי */
-  margin-bottom: 15px;
-  font-weight: 400; /* חשוב מאוד: 400 זה המשקל הרגיל/דק של הפונט הזה */
 }
 
 .catalog-subtitle {
-  text-align: center;
-  color: #777; /* אפור עדין */
-  font-size: 14px;
-  letter-spacing: 3px; /* ריווח גדול בין אותיות */
+  font-size: 12px;
+  letter-spacing: 0.5em;
   text-transform: uppercase;
-  margin-bottom: 60px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 300; /* חשוב מאוד: 300 זה פונט דק מאוד */
+  color: #999;
 }
 
-/* כרטיסיות מותגים - עיצוב יוקרתי ונקי */
+/* Brand Cards Grid - More air, more style */
 .brand-cards {
-  display: flex;
-  gap: 40px;
-  margin-bottom: 80px;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
 }
 
 .brand-link {
   text-decoration: none;
   color: inherit;
-  transition: transform 0.4s ease;
 }
 
 .brand-card {
-  width: 300px;
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  text-align: center;
   position: relative;
+  text-align: center;
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* התמונה של המותג */
+/* Image Frame - The secret to high-end look */
+.image-container {
+  background-color: var(--paris-grey);
+  padding: 60px 40px;
+  margin-bottom: 35px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid transparent;
+  transition: all 0.6s ease;
+}
+
 .brand-card img {
   width: 100%;
-  height: 280px;
+  height: 350px;
   object-fit: contain;
-  margin-bottom: 20px;
-  filter: grayscale(100%); /* שחור לבן למראה נקי */
-  transition: filter 0.3s ease, transform 0.3s ease;
+  transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* כותרת המותג */
-.brand-card h2 {
-  margin: 0;
-  font-family: "Playfair Display", serif;
-  font-size: 24px;
-  letter-spacing: 1.5px;
-  color: #000;
-  text-transform: uppercase;
-  position: relative;
-  display: inline-block;
+.brand-link:hover .image-container {
+  background-color: #f2f2f0;
+  border-color: #dcdcd0;
 }
 
-/* קו תחתון עדין שמופיע במעבר עכבר */
-.brand-card h2::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 1px;
-  bottom: -5px;
-  left: 50%;
-  background-color: #000;
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
-}
-
-/* אפקטים במעבר עכבר */
 .brand-link:hover .brand-card img {
-  filter: grayscale(0%); /* מחזיר צבע */
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
-.brand-link:hover .brand-card h2::after {
-  width: 100%;
-}
-
-/* --- רשימת המוצרים (כרטיסי מוצר) --- */
-.brand-products {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.product-card {
-  width: 260px;
-  padding: 20px;
-  border: 1px solid transparent;
-  background: #fff;
-  text-align: center;
-  transition: 0.3s;
-}
-
-.product-card:hover {
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-.product-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: contain;
-  margin-bottom: 15px;
-}
-
-.product-card h3 {
-  margin: 10px 0;
+.brand-card h2 {
   font-family: "Playfair Display", serif;
-  font-size: 18px;
-  color: #222;
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  letter-spacing: 0.05em;
 }
 
-.product-card p {
-  color: #666;
+.brand-card p {
   font-size: 14px;
-  line-height: 1.5;
-  min-height: 40px;
-}
-
-.product-card .price {
-  margin-top: 10px;
-  font-weight: 700;
-  font-family: "Lato", sans-serif;
-  color: #000;
-  font-size: 16px;
-}
-
-.product-card .add-to-cart-btn {
-  background-color: black;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  margin-top: 10px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.product-card .add-to-cart-btn:hover {
-  background-color: #333;
-}
-
-
-/* --- Elegant Popup Styles (עיצוב ההודעה הקופצת) --- */
-
-.elegant-modal {
-  border-radius: 0 !important;
-  padding: 3rem 2rem !important;
-  font-family: 'Playfair Display', serif !important;
-}
-
-.elegant-title {
-  font-family: 'Playfair Display', serif !important;
-  color: #000 !important;
-  font-size: 26px !important;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 10px !important;
-}
-
-.elegant-content {
-  font-family: 'Lato', sans-serif !important;
-  color: #555 !important;
-  font-size: 16px !important;
-  margin-top: 10px !important;
-}
-
-.elegant-btn {
-  font-family: 'Lato', sans-serif !important;
-  background-color: #000 !important;
-  color: #fff !important;
-  border-radius: 0 !important;
-  padding: 15px 30px !important;
-  font-size: 12px !important;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  box-shadow: none !important;
-}
-
-.elegant-btn:hover {
-  background-color: #333 !important;
-}
-/* --- Coupon Code Section (Cart) --- */
-.coupon-section {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid #eee;
-}
-
-.coupon-box {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.coupon-input {
-  flex: 1;
-  padding: 10px 15px;
-  border: 1px solid #ccc;
-  border-radius: 24px; /* תואם לכפתורים באתר */
-  font-family: 'Lato', sans-serif;
-  font-size: 14px;
-  outline: none;
-}
-
-.coupon-btn {
-  background-color: #000;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 24px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.3s;
-}
-
-.coupon-btn:hover {
-  background-color: #333;
-}
-
-.coupon-message {
-  font-size: 13px;
-  margin-top: 8px;
-  min-height: 20px;
-}
-
-.coupon-message.success { color: green; }
-.coupon-message.error { color: red; }
-
-/* --- FAQ Page Styles --- */
-.faq-section {
-  max-width: 800px;
-  margin: 60px auto 100px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 30px;
   padding: 0 20px;
 }
 
-.faq-title {
-  text-align: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  margin-bottom: 50px;
+/* The Parisian Button - Minimalist & Chic */
+.fake-btn {
+  font-size: 10px;
+  letter-spacing: 0.4em;
   text-transform: uppercase;
+  padding: 15px 40px;
+  border: 1px solid var(--paris-black);
+  display: inline-block;
+  transition: all 0.4s ease;
+  background: transparent;
 }
 
-.faq-container {
+.brand-link:hover .fake-btn {
+  background: var(--paris-black);
+  color: #fff;
+}
+
+/* --- Hero Section Refinement --- */
+.hero-card {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.faq-item {
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 20px;
-}
-
-.faq-question {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  font-weight: 500;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
+  background: var(--paris-grey);
+  min-height: 600px;
   align-items: center;
-  transition: color 0.3s;
 }
 
-/* --- PROFILE PAGE --- */
-
-.profile-section {
-  max-width: 600px;
-  margin: 60px auto;
+.hero-text {
+  flex: 1;
+  padding: 100px;
 }
 
-.profile-container {
-  text-align: center;
-}
-
-.profile-container h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  margin-bottom: 40px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.profile-card {
-  background-color: #f7f7f7;
-  border-radius: 24px;
-  padding: 40px;
-  text-align: left;
-}
-
-.profile-info {
+.headline {
+  font-family: "Playfair Display", serif;
+  font-size: 56px;
+  line-height: 1.1;
   margin-bottom: 30px;
 }
 
-.profile-info h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  margin-bottom: 24px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.profile-field {
-  margin-bottom: 24px;
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 16px;
-}
-
-.profile-field label {
-  font-weight: 600;
-  font-size: 14px;
-  color: #555;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.profile-field p {
-  font-size: 16px;
-  color: #222;
-  margin: 8px 0 0;
-}
-
-.profile-actions {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.btn-edit,
-.btn-logout {
-  padding: 12px 28px;
-  border: none;
-  border-radius: 24px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.3s;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 500;
-}
-
-.btn-edit {
-  background-color: #000;
+.hero-button button {
+  background: #000;
   color: #fff;
-}
-
-.btn-edit:hover {
-  background-color: #333;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
-
-.btn-logout {
-  background-color: transparent;
-  color: #000;
-  border: 1px solid #000;
-}
-
-.btn-logout:hover {
-  background-color: #000;
-  color: #fff;
-}
-
-@media (max-width: 600px) {
-  .profile-card {
-    padding: 24px;
-  }
-  
-  .profile-actions {
-    flex-direction: column;
-  }
-  
-  .btn-edit,
-  .btn-logout {
-    width: 100%;
-  }
-}
-.faq-question:hover {
-  color: #555;
-}
-
-.faq-icon {
-  font-size: 20px;
-  font-weight: 300;
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-out;
-  font-family: 'Lato', sans-serif;
-  font-size: 15px;
-  color: #666;
-  line-height: 1.6;
-  margin-top: 0;
-}
-
-.faq-item.active .faq-answer {
-  margin-top: 15px;
-  max-height: 300px; /* גובה מקסימלי לפתיחה */
-}
-
-
-@media (max-width: 768px) {
-  .form-row-split {
-    flex-direction: column;
-    gap: 40px;
-  }
-  .contact-title { font-size: 36px; }
-  .submit-container { justify-content: center; }
-  .submit-btn { width: 100%; }
-}
-
-
-.contact-wrapper {
-  max-width: 900px;
-  margin: 80px auto;
-  padding: 0 40px;
-}
-
-.contact-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 48px;
-  font-weight: 400;
-  margin-bottom: 60px;
-  color: #000;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-}
-
-.form-row-split {
-  display: flex;
-  gap: 50px;
-}
-
-.form-group {
-  flex: 1;
-  position: relative;
-}
-
-.form-label {
-  display: block;
-  font-size: 15px;
-  color: #000;
-  margin-bottom: 10px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-}
-
-.form-input {
-  width: 100%;
+  padding: 20px 50px;
   border: none;
-  border-bottom: 1.5px solid #000;
-  padding: 10px 0;
-  font-family: 'Lato', sans-serif;
-  font-size: 16px;
-  background: transparent;
-  outline: none;
-  transition: border-color 0.3s;
-}
-
-.form-input:focus {
-  border-bottom-width: 3px;
-}
-
-.checkbox-group {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 10px;
-  font-size: 14px;
-  color: #000;
-}
-
-.checkbox-group input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
+  letter-spacing: 0.3em;
+  font-size: 11px;
+  text-transform: uppercase;
   cursor: pointer;
-  accent-color: #000;
 }
 
-.privacy-text {
-  text-align: right;
-  direction: rtl;
-}
-
-.submit-container {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
-}
-
-.submit-btn {
-  background-color: #000;
-  color: #fff;
-  border: none;
-  padding: 15px 60px;
-  border-radius: 50px;
-  font-size: 16px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  cursor: pointer;
-  transition: opacity 0.3s;
-}
-
-.submit-btn:hover {
-  opacity: 0.8;
-}
-
-/* --- CART PAGE SPECIFIC --- */
-
-.cart-page-title {
+/* --- Footer --- */
+.site-footer {
+  padding: 100px 0;
+  background: #fff;
+  border-top: 1px solid var(--paris-grey);
   text-align: center;
-  margin: 40px 0 20px;
-  font-size: 32px;
-  font-family: "Playfair Display", serif;
 }
 
-.cart-actions {
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
-  justify-content: flex-end;
-}
-
-.btn-checkout {
-  background-color: #000;
-  color: #fff;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 24px;
-  cursor: pointer;
-  font-size: 16px;
-  text-decoration: none;
-}
-
-.btn-clear {
-  background-color: transparent;
-  color: #555;
-  padding: 12px 24px;
-  border: 1px solid #ccc;
-  border-radius: 24px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.cart-summary-box {
-  margin-top: 30px;
-  text-align: left;
-  padding: 20px;
-  background: #f9f9f9;
-  border-radius: 10px;
-  max-width: 400px;
-  margin-right: auto;
-}
-
-.summary-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  font-family: 'Lato', sans-serif;
-}
-
-.summary-row.total {
-  font-weight: bold;
-  font-size: 1.2rem;
-  border-top: 1px solid #ddd;
-  padding-top: 10px;
-  margin-top: 10px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
+.footer-logo { width: 100px; margin-bottom: 50px; }
+.footer-columns { display: flex; justify-content: center; gap: 120px; }
+.footer-col-right p, .footer-col-left p { font-size: 13px; letter-spacing: 0.1em; color: #888; }

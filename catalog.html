@@ -2,13 +2,8 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <title>Product Catalog - PÉDANT</title>
+  <title>Les Collections - PÉDANT Paris</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -16,61 +11,63 @@
 
   <header>
     <div class="logo">
-      <a href="index.html"><img src="images/logo.png" alt="PÉDANT Cosmetic Logo"></a>
+      <a href="index.html"><img src="images/logo.png" alt="PÉDANT Logo"></a>
     </div>
 
     <nav>
       <ul>
-          <li><a href="index.html">HOME</a></li>
-          <li><a href="catalog.html">CATALOG</a></li>
-          <li><a href="about.html">ABOUT</a></li>
-          <li><a href="contact.html">CONTACT</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li id="nav-login" style="display:none;"><a href="login.html">LOGIN</a></li>
-          <li id="nav-signup" style="display:none;"><a href="signup.html">SIGN UP</a></li>
-          <li id="nav-profile-item" style="display:none;"><a href="profile.html">PROFILE</a></li>
-          <li id="nav-logout" style="display:none;"><a href="#" onclick="logout(event)">LOGOUT</a></li>
-          <li><a href="cart.html"><img src="images/cart.png" class="cart-icon" alt="Cart"></a></li>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="catalog.html">CATALOG</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li id="nav-login" style="display:none;"><a href="login.html">LOGIN</a></li>
+        <li id="nav-signup" style="display:none;"><a href="signup.html">SIGN UP</a></li>
+        <li id="nav-profile-item" style="display:none;"><a href="profile.html">PROFILE</a></li>
+        <li id="nav-logout" style="display:none;"><a href="#" onclick="logout(event)">LOGOUT</a></li>
+        <li><a href="cart.html"><img src="images/cart.png" class="cart-icon" alt="Cart"></a></li>
       </ul>
     </nav>
   </header>
 
-  <div class="catalog-page">
-    <h1 class="catalog-title">Product Categories</h1>
-    <p class="catalog-subtitle">Curated Skincare Collections</p>
+  <div class="site-wrapper">
+    <div class="catalog-header">
+      <h1 class="catalog-title">Les Collections</h1>
+      <p class="catalog-subtitle">Exquisite Skincare Curated for You</p>
+    </div>
 
     <div class="brand-cards">
-
+      
       <a href="dermalosophy.html" class="brand-link">
         <div class="brand-card">
-          <img src="images/logo dermalosophy.jpg" alt="Dermalosophy">
-          <div class="card-info">
-            <h2>Dermalosophy</h2>
-            <p>Advanced formulas combining science & technology for effective skin solutions.</p>
-            <span class="fake-btn">Discover More</span>
+          <div class="image-container">
+            <img src="images/logo dermalosophy.jpg" alt="Dermalosophy Paris">
           </div>
+          <h2>Dermalosophy</h2>
+          <p>Where science meets high-end aesthetics. Discover clinical formulations designed for profound skin transformation.</p>
+          <span class="fake-btn">Explore Collection</span>
         </div>
       </a>
 
       <a href="biopeptix.html" class="brand-link">
         <div class="brand-card">
-          <img src="images/logo biopeptix.jpg" alt="Biopeptix">
-          <div class="card-info">
-            <h2>Biopeptix</h2>
-            <p>Bio-active peptides designed to revitalize, firm, and renew your skin texture.</p>
-            <span class="fake-btn">Discover More</span>
+          <div class="image-container">
+            <img src="images/logo biopeptix.jpg" alt="Biopeptix Paris">
           </div>
+          <h2>Biopeptix</h2>
+          <p>Harnessing the power of active peptides to redefine your skin's vitality and structure from within.</p>
+          <span class="fake-btn">Explore Collection</span>
         </div>
       </a>
 
       <a href="renew.html" class="brand-link">
         <div class="brand-card">
-          <img src="images/logo renew.jpg" alt="Renew">
-          <div class="card-info">
-            <h2>RENEW</h2>
-            <p>Professional treatments that deliver a long-lasting, healthy, and radiant glow.</p>
-            <span class="fake-btn">Discover More</span>
+          <div class="image-container">
+            <img src="images/logo renew.jpg" alt="Renew Paris">
           </div>
+          <h2>Renew</h2>
+          <p>Timeless therapeutic treatments that reveal a luminous, healthy glow. The ultimate in professional care.</p>
+          <span class="fake-btn">Explore Collection</span>
         </div>
       </a>
 
@@ -78,45 +75,23 @@
   </div>
 
   <footer class="site-footer">
-  <div class="footer-wrapper">
-
-    <!-- לוגו באמצע -->
-    <div class="footer-logo-area">
-      <img src="images/logo.png" class="footer-logo" alt="Pédant Cosmetic Logo">
-    </div>
-
-    <!-- קו הפרדה -->
-    <div class="footer-line"></div>
-
-    <!-- שתי העמודות עם קו אנכי -->
-    <div class="footer-columns">
-
-      <!-- עמודת הצהרות -->
-      <div class="footer-col-right" dir="rtl">
-        <p>הצהרת נגישות</p>
-        <p>הצהרת פרטיות</p>
+    <div class="footer-wrapper">
+      <img src="images/logo.png" class="footer-logo" alt="Pédant Logo">
+      <div class="footer-columns">
+        <div class="footer-col-right">
+          <p>ACCESSIBILITY</p>
+          <p>PRIVACY POLICY</p>
+        </div>
+        <div class="footer-col-left">
+          <p>pedantcosmetic@gmail.com</p>
+          <p>+972 54 642 9448</p>
+        </div>
       </div>
-
-      <!-- קו ביניים אנכי -->
-      <div class="footer-middle-line"></div>
-
-      <!-- עמודת מייל + טלפון -->
-      <div class="footer-col-left">
-        <p>pedantcosmetic@gmail.com</p>
-        <p>Tel: 0546429448</p>
-      </div>
-
-    </div>
-
-    <!-- אייקון אינסטגרם במרכז -->
-    <div class="footer-social">
-      <a href="https://www.instagram.com/merav_lavie_pedant?igsh=NHlvdTgxNm9peXd6" target="_blank">
+      <a href="https://www.instagram.com/merav_lavie_pedant" target="_blank">
         <img src="images/instagram.png" class="footer-instagram" alt="Instagram">
       </a>
     </div>
-
-  </div>
-</footer>
+  </footer>
 
   <script src="JavaScript/auth.js"></script>
 </body>
