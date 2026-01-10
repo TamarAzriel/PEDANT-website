@@ -9,177 +9,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
-  <style>
-    /* --- CSS פנימי לעקיפת בעיות Cache --- */
-    
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Lato', sans-serif;
-      font-weight: 300; /* טקסט דק לכל האתר */
-      background-color: #ffffff;
-      color: #333;
-    }
-
-    a { text-decoration: none; color: inherit; transition: opacity 0.3s; }
-    a:hover { opacity: 0.8; }
-
-    /* HEADER */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 40px;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .logo img { height: 50px; width: auto; }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-    }
-
-    nav ul li a {
-      font-size: 13px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 400;
-      color: #000;
-    }
-
-    /* CATALOG PAGE STYLES */
-    .catalog-page {
-      max-width: 1200px;
-      margin: 60px auto 100px;
-      padding: 0 20px;
-    }
-
-    .catalog-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 42px;
-      font-weight: 400; /* כותרת דקה */
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 15px;
-      color: #000;
-    }
-
-    .catalog-subtitle {
-      text-align: center;
-      font-family: 'Lato', sans-serif;
-      font-weight: 300;
-      font-size: 14px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #777;
-      margin-bottom: 80px;
-    }
-
-    /* GRID LAYOUT */
-    .brand-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      justify-content: center;
-    }
-
-    /* CARD DESIGN */
-    .brand-link {
-      display: block;
-      height: 100%;
-    }
-
-    .brand-card {
-      background-color: #f9f9f9; /* הרקע האפור שרצית */
-      border-radius: 20px;       /* פינות עגולות */
-      padding: 40px;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      text-align: left; /* יישור לשמאל */
-    }
-
-    .brand-link:hover .brand-card {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-      background-color: #fff;
-    }
-
-    .brand-card img {
-      width: 100%;
-      height: 240px;
-      object-fit: contain;
-      margin-bottom: 30px;
-      mix-blend-mode: multiply; /* משתלב עם הרקע */
-      align-self: center;
-    }
-
-    .card-info {
-      margin-top: auto; /* דוחף את הטקסט למטה אם התמונה קצרה */
-    }
-
-    .brand-card h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 26px;
-      font-weight: 400; /* כותרת דקה */
-      color: #000;
-      margin-bottom: 12px;
-      letter-spacing: 1px;
-    }
-
-    .brand-card p {
-      font-size: 15px;
-      font-weight: 300; /* טקסט דק */
-      line-height: 1.6;
-      color: #666;
-      margin-bottom: 25px;
-    }
-
-    /* PILL BUTTON */
-    .fake-btn {
-      display: block;
-      width: 100%;
-      padding: 12px 0;
-      border: 1px solid #ccc; /* מסגרת דקה ואפורה */
-      border-radius: 50px;    /* כפתור גלולה */
-      text-align: center;
-      font-size: 13px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: #888;
-      transition: all 0.3s;
-    }
-
-    .brand-link:hover .fake-btn {
-      border-color: #000;
-      background-color: #000;
-      color: #fff;
-    }
-
-    /* FOOTER (Minimal) */
-    footer {
-      text-align: center;
-      padding: 50px 0;
-      border-top: 1px solid #eee;
-      margin-top: 50px;
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
   <header>
     <div class="logo">
-      <img src="logo.png" alt="Pédant Cosmetic Logo">
+      <a href="index.html"><img src="images/logo.png" alt="PÉDANT Cosmetic Logo"></a>
     </div>
 
     <nav>
@@ -187,13 +24,13 @@
           <li><a href="index.html">HOME</a></li>
           <li><a href="catalog.html">CATALOG</a></li>
           <li><a href="about.html">ABOUT</a></li>
-          <li><a href="faq.html">FAQ</a></li>
           <li><a href="contact.html">CONTACT</a></li>
-          <li id="nav-profile-item" style="display:none;"><a href="profile.html">PROFILE</a></li>
+          <li><a href="faq.html">FAQ</a></li>
           <li id="nav-login" style="display:none;"><a href="login.html">LOGIN</a></li>
           <li id="nav-signup" style="display:none;"><a href="signup.html">SIGN UP</a></li>
+          <li id="nav-profile-item" style="display:none;"><a href="profile.html">PROFILE</a></li>
           <li id="nav-logout" style="display:none;"><a href="#" onclick="logout(event)">LOGOUT</a></li>
-          <li><a href="cart.html"><img src="cart.png" class="cart-icon"></a></li>
+          <li><a href="cart.html"><img src="images/cart.png" class="cart-icon" alt="Cart"></a></li>
       </ul>
     </nav>
   </header>
@@ -206,7 +43,7 @@
 
       <a href="dermalosophy.html" class="brand-link">
         <div class="brand-card">
-          <img src="logo dermalosophy.jpg" alt="Dermalosophy">
+          <img src="images/logo dermalosophy.jpg" alt="Dermalosophy">
           <div class="card-info">
             <h2>Dermalosophy</h2>
             <p>Advanced formulas combining science & technology for effective skin solutions.</p>
@@ -217,7 +54,7 @@
 
       <a href="biopeptix.html" class="brand-link">
         <div class="brand-card">
-          <img src="logo biopeptix.jpg" alt="Biopeptix">
+          <img src="images/logo biopeptix.jpg" alt="Biopeptix">
           <div class="card-info">
             <h2>Biopeptix</h2>
             <p>Bio-active peptides designed to revitalize, firm, and renew your skin texture.</p>
@@ -228,7 +65,7 @@
 
       <a href="renew.html" class="brand-link">
         <div class="brand-card">
-          <img src="logo renew.jpg" alt="Renew">
+          <img src="images/logo renew.jpg" alt="Renew">
           <div class="card-info">
             <h2>RENEW</h2>
             <p>Professional treatments that deliver a long-lasting, healthy, and radiant glow.</p>
@@ -240,10 +77,47 @@
     </div>
   </div>
 
-  <footer>
-    <p>&copy; 2023 PÉDANT Cosmetic</p>
-  </footer>
+  <footer class="site-footer">
+  <div class="footer-wrapper">
 
-  <script src="auth.js"></script>
+    <!-- לוגו באמצע -->
+    <div class="footer-logo-area">
+      <img src="images/logo.png" class="footer-logo" alt="Pédant Cosmetic Logo">
+    </div>
+
+    <!-- קו הפרדה -->
+    <div class="footer-line"></div>
+
+    <!-- שתי העמודות עם קו אנכי -->
+    <div class="footer-columns">
+
+      <!-- עמודת הצהרות -->
+      <div class="footer-col-right" dir="rtl">
+        <p>הצהרת נגישות</p>
+        <p>הצהרת פרטיות</p>
+      </div>
+
+      <!-- קו ביניים אנכי -->
+      <div class="footer-middle-line"></div>
+
+      <!-- עמודת מייל + טלפון -->
+      <div class="footer-col-left">
+        <p>pedantcosmetic@gmail.com</p>
+        <p>Tel: 0546429448</p>
+      </div>
+
+    </div>
+
+    <!-- אייקון אינסטגרם במרכז -->
+    <div class="footer-social">
+      <a href="https://www.instagram.com/merav_lavie_pedant?igsh=NHlvdTgxNm9peXd6" target="_blank">
+        <img src="images/instagram.png" class="footer-instagram" alt="Instagram">
+      </a>
+    </div>
+
+  </div>
+</footer>
+
+  <script src="JavaScript/auth.js"></script>
 </body>
 </html>

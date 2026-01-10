@@ -5,7 +5,7 @@
   <title>Checkout - PÉDANT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Lato:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=1002"> <style>
+  <link rel="stylesheet" href="css/styles.css"> <style>
     /* עיצוב ספציפי לדף Checkout */
     body {
       background-color: #f9f9f9;
@@ -157,6 +157,27 @@
 </head>
 <body>
 
+<header>
+  <div class="logo">
+    <a href="index.html"><img src="images/logo.png" alt="PÉDANT Cosmetic Logo"></a>
+  </div>
+
+  <nav>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="catalog.html">CATALOG</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li id="nav-login" style="display:none;"><a href="login.html">LOGIN</a></li>
+        <li id="nav-signup" style="display:none;"><a href="signup.html">SIGN UP</a></li>
+        <li id="nav-profile-item" style="display:none;"><a href="profile.html">PROFILE</a></li>
+        <li id="nav-logout" style="display:none;"><a href="#" onclick="logout(event)">LOGOUT</a></li>
+        <li><a href="cart.html"><img src="images/cart.png" class="cart-icon" alt="Cart"></a></li>
+    </ul>
+  </nav>
+</header>
+
 <div class="checkout-container">
   
   <div class="checkout-col">
@@ -196,8 +217,49 @@
 
 </div>
 
-<script src="auth.js"></script>
-<script src="checkout.js?v=2"></script> 
+  <footer class="site-footer">
+  <div class="footer-wrapper">
+
+    <!-- לוגו באמצע -->
+    <div class="footer-logo-area">
+      <img src="images/logo.png" class="footer-logo" alt="Pédant Cosmetic Logo">
+    </div>
+
+    <!-- קו הפרדה -->
+    <div class="footer-line"></div>
+
+    <!-- שתי העמודות עם קו אנכי -->
+    <div class="footer-columns">
+
+      <!-- עמודת הצהרות -->
+      <div class="footer-col-right" dir="rtl">
+        <p>הצהרת נגישות</p>
+        <p>הצהרת פרטיות</p>
+      </div>
+
+      <!-- קו ביניים אנכי -->
+      <div class="footer-middle-line"></div>
+
+      <!-- עמודת מייל + טלפון -->
+      <div class="footer-col-left">
+        <p>pedantcosmetic@gmail.com</p>
+        <p>Tel: 0546429448</p>
+      </div>
+
+    </div>
+
+    <!-- אייקון אינסטגרם במרכז -->
+    <div class="footer-social">
+      <a href="https://www.instagram.com/merav_lavie_pedant?igsh=NHlvdTgxNm9peXd6" target="_blank">
+        <img src="images/instagram.png" class="footer-instagram" alt="Instagram">
+      </a>
+    </div>
+
+  </div>
+</footer>
+
+<script src="JavaScript/auth.js"></script>
+<script src="JavaScript/checkout.js?v=2"></script> 
 
 </body>
 </html>

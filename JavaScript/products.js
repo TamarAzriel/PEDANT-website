@@ -7,7 +7,7 @@ const productsDatabase = [
     brand: "biopeptix",
     name: "Active Serum",
     price: 290,
-    image: "biopeptix1.jpg.webp",
+    image: "images/biopeptix1.jpg.webp",
     description: "סרום פעיל מבוסס פפטידים לשיקום העור."
   },
   {
@@ -15,7 +15,7 @@ const productsDatabase = [
     brand: "biopeptix",
     name: "Hydra Cream",
     price: 210,
-    image: "biopeptix2.jpg.webp",
+    image: "images/biopeptix2.jpg.webp",
     description: "קרם לחות אינטנסיבי לשימוש יומיומי."
   },
   {
@@ -23,7 +23,7 @@ const productsDatabase = [
     brand: "biopeptix",
     name: "Face Soap",
     price: 290,
-    image: "biopeptix3.jpg.webp",
+    image: "images/biopeptix3.jpg.webp",
     description: "סבון פנים."
   },
   {
@@ -31,7 +31,7 @@ const productsDatabase = [
     brand: "biopeptix",
     name: "Soothing and Firming Serum",
     price: 300,
-    image: "biopeptix4.jpg.webp",
+    image: "images/biopeptix4.jpg.webp",
     description: "סרום הרגעה ומיצוק."
   },
   {
@@ -39,7 +39,7 @@ const productsDatabase = [
     brand: "biopeptix",
     name: "3A Serum",
     price: 350,
-    image: "biopeptix5.jpg.webp",
+    image: "images/biopeptix5.jpg.webp",
     description: "הגנה מפני אור כחול."
   },
   {
@@ -47,7 +47,7 @@ const productsDatabase = [
     brand: "biopeptix",
     name: "Pome-Peel",
     price: 360,
-    image: "biopeptix6.jpg.webp",
+    image: "images/biopeptix6.jpg.webp",
     description: "פילינג חומצות פרי."
   },
 
@@ -57,7 +57,7 @@ const productsDatabase = [
     brand: "renew",
     name: "Energy Day Cream",
     price: 220,
-    image: "renew1.jpg",
+    image: "images/renew1.jpg",
     description: "קרם יום אנרגטי להזנת העור והענקת לחות."
   },
   {
@@ -65,7 +65,7 @@ const productsDatabase = [
     brand: "renew",
     name: "Retinol Night Serum",
     price: 260,
-    image: "renew2.jpg.png",
+    image: "images/renew2.jpg.png",
     description: "סרום לילה עם רטינול לשיפור מרקם העור."
   },
   {
@@ -73,7 +73,7 @@ const productsDatabase = [
     brand: "renew",
     name: "Comfort Glow Moisturizer",
     price: 260,
-    image: "renew3.jpg.png",
+    image: "images/renew3.jpg.png",
     description: "קרם לחות נגד קמטים."
   },
   {
@@ -81,7 +81,7 @@ const productsDatabase = [
     brand: "renew",
     name: "Depigmenting Mask",
     price: 106,
-    image: "renew4.jpg.png",
+    image: "images/renew4.jpg.png",
     description: "מסכת הבהרה."
   },
   {
@@ -89,7 +89,7 @@ const productsDatabase = [
     brand: "renew",
     name: "Drying Dermo Control",
     price: 79,
-    image: "renew5.jpg.png",
+    image: "images/renew5.jpg.png",
     description: "תרחיף מייבש."
   },
   {
@@ -97,7 +97,7 @@ const productsDatabase = [
     brand: "renew",
     name: "Neck & Decollete Firming",
     price: 150,
-    image: "renew6.jpg.png",
+    image: "images/renew6.jpg.png",
     description: "קרם צוואר ממצק"
   },
 
@@ -107,7 +107,7 @@ const productsDatabase = [
     brand: "dermalosophy",
     name: "Vitamin C Serum",
     price: 250,
-    image: "dermalosophy Vitamin C.jpg",
+    image: "images/dermalosophy Vitamin C.jpg",
     description: "סרום ויטמין C למראה עור זוהר ואחיד."
   },
   {
@@ -115,7 +115,7 @@ const productsDatabase = [
     brand: "dermalosophy",
     name: "Calming Mask",
     price: 230,
-    image: "dermalosophy2.jpg.webp",
+    image: "images/dermalosophy2.jpg.webp",
     description: "מסכת הרגעה לעור רגיש ואדמומי."
   },
   {
@@ -123,7 +123,7 @@ const productsDatabase = [
     brand: "dermalosophy",
     name: "Eye Cream",
     price: 220,
-    image: "dermalosophy3.jpg.webp",
+    image: "images/dermalosophy3.jpg.webp",
     description: "קרם עיניים."
   },
   {
@@ -131,7 +131,7 @@ const productsDatabase = [
     brand: "dermalosophy",
     name: "Make up Blur",
     price: 300,
-    image: "dermalosophy4.jpg.webp",
+    image: "images/dermalosophy4.jpg.webp",
     description: "מייקאפ תיקון."
   },
   {
@@ -139,7 +139,7 @@ const productsDatabase = [
     brand: "dermalosophy",
     name: "CLEANSER FOR ALL SKIN TYPES",
     price: 280,
-    image: "dermalosophy5.jpg.webp",
+    image: "images/dermalosophy5.jpg.webp",
     description: "קצף ניקוי."
   },
   {
@@ -147,7 +147,7 @@ const productsDatabase = [
     brand: "dermalosophy",
     name: "BLOCK SPF 50 DEMI MAKE UP",
     price: 260,
-    image: "dermalosophy6.jpg.webp",
+    image: "images/dermalosophy6.jpg.webp",
     description: "קרם לחות עם מקדם הגנה."
   }
 ];
