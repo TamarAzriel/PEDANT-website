@@ -29,6 +29,10 @@
 </head>
 
 <body>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <img src="images/logo.png" alt="PÉDANT" class="preloader-logo">
+  </div>
 
   <header class="luxury-header">
     <nav class="nav-container">
@@ -64,26 +68,26 @@
         <p class="luxury-body mt-4 opacity-50">Our team is here to assist you with your aesthetic journey.</p>
       </div>
 
-      <form class="contact-form-luxury reveal-on-scroll" onsubmit="event.preventDefault(); alert('Message sent successfully.');">
+      <form id="contact-form" class="contact-form-luxury reveal-on-scroll">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
           <div class="luxury-input-group">
             <label>First Name</label>
-            <input type="text" class="luxury-input" placeholder="JANE" required>
+            <input type="text" id="firstname" class="luxury-input" placeholder="JANE" required>
           </div>
           <div class="luxury-input-group">
             <label>Last Name</label>
-            <input type="text" class="luxury-input" placeholder="DOE" required>
+            <input type="text" id="lastname" class="luxury-input" placeholder="DOE" required>
           </div>
         </div>
 
         <div class="luxury-input-group">
           <label>Email Address</label>
-          <input type="email" class="luxury-input" placeholder="JANE@EXAMPLE.COM" required>
+          <input type="email" id="email" class="luxury-input" placeholder="JANE@EXAMPLE.COM" required>
         </div>
 
         <div class="luxury-input-group">
           <label>Message</label>
-          <input type="text" class="luxury-input" placeholder="HOW CAN WE HELP YOU?" required>
+          <input type="text" id="message" class="luxury-input" placeholder="HOW CAN WE HELP YOU?" required>
         </div>
 
         <button type="submit" class="submit-btn-luxury">SEND MESSAGE</button>
@@ -147,6 +151,45 @@
 
   <script src="JavaScript/auth.js"></script>
   <script>
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      setTimeout(() => {
+        preloader.classList.add('hidden');
+      }, 1500);
+    });
+
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const form = event.target;
+      const submitBtn = form.querySelector('button');
+      const firstName = document.getElementById('firstname').value;
+      
+      submitBtn.textContent = 'SENDING...';
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        const container = document.querySelector('.contact-container');
+        container.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        container.style.opacity = '0';
+        container.style.transform = 'translateY(-20px)';
+        
+        setTimeout(() => {
+          container.innerHTML = `
+            <div style="text-align: center; padding: 10rem 0; animation: fade-up 1.2s ease forwards;">
+              <span class="luxury-subheading">MESSAGE RECEIVED</span>
+              <h2 class="luxury-display" style="font-size: 3rem; margin-top: 1.5rem; margin-bottom: 2rem;">THANK YOU, ${firstName.toUpperCase()}</h2>
+              <p class="luxury-body" style="opacity: 0.5; max-width: 500px; margin: 0 auto;">
+                Our concierge team has received your inquiry. We will review your message and reach out to you within 24 hours to assist with your aesthetic journey.
+              </p>
+              <button class="submit-btn-luxury" onclick="window.location.href='index.html'" style="max-width: 300px; margin: 4rem auto 0;">BACK TO HOME</button>
+            </div>
+          `;
+          container.style.opacity = '1';
+          container.style.transform = 'translateY(0)';
+        }, 800);
+      }, 1500);
+    });
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('reveal');

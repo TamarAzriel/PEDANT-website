@@ -60,13 +60,37 @@ body {
 /* --- Reveal on Scroll --- */
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(40px);
+  filter: blur(10px);
+  transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity, filter;
 }
+.reveal-on-scroll.reveal-left { transform: translateX(-40px); }
+.reveal-on-scroll.reveal-right { transform: translateX(40px); }
+.reveal-on-scroll.reveal-scale { transform: scale(0.9); filter: blur(15px); }
+
 .reveal {
   opacity: 1 !important;
   transform: translateY(0) !important;
+  transform: translateX(0) !important;
+  transform: scale(1) !important;
+  filter: blur(0) !important;
 }
+
+/* Luxury Stagger Delays */
+.delay-1 { transition-delay: 0.4s; }
+.delay-2 { transition-delay: 0.7s; }
+.delay-3 { transition-delay: 1.0s; }
+.delay-4 { transition-delay: 1.3s; }
+.delay-5 { transition-delay: 1.6s; }
+
+/* Image Hover Parallax Effect */
+.parallax-img-container { overflow: hidden; }
+.parallax-img { transition: transform 2.5s cubic-bezier(0.16, 1, 0.3, 1); will-change: transform; }
+.reveal.parallax-img { transform: scale(1.1); }
+.reveal.parallax-img:hover { transform: scale(1.05) translateY(-10px); }
 
 /* --- Header --- */
 .luxury-header {
@@ -213,8 +237,59 @@ body {
 
 .footer-bottom { padding-top: 60px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.75rem; opacity: 0.2; letter-spacing: 0.15em; text-align: center; }
 
-/* Animation Utility */
-@keyframes fade-up { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+/* --- Preloader --- */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), visibility 1s;
+}
+.preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.preloader-logo {
+  width: 120px;
+  height: auto;
+  animation: logo-pulse 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+@keyframes logo-pulse {
+  0% { transform: scale(0.95); opacity: 0.5; }
+  50% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.5; }
+}
+
+/* Success Overlay / Modal */
+.success-overlay-v2 {
+  position: fixed; inset: 0; z-index: 10000;
+  background: rgba(255,255,255,0.9); backdrop-filter: blur(20px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden; transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.success-overlay-v2.active { opacity: 1; visibility: visible; }
+
+.success-card-v2 {
+  background: #f2f2f2;
+  padding: 5rem; border-radius: 4px; width: 90%; max-width: 600px;
+  text-align: center; box-shadow: 0 40px 100px rgba(0,0,0,0.05);
+  transform: translateY(30px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.success-overlay-v2.active .success-card-v2 { transform: translateY(0); }
+
+.order-number-v2 {
+  font-size: 0.65rem; letter-spacing: 0.5em; opacity: 0.3; text-transform: uppercase; margin-bottom: 2.5rem; display: block;
+}
+
+.success-btn-v2 {
+  margin-top: 4rem; padding: 1.5rem 4rem; background: #000; color: #fff;
+  font-size: 0.7rem; letter-spacing: 0.4em; text-transform: uppercase;
+  border: none; cursor: pointer; transition: var(--transition);
+}
+.success-btn-v2:hover { letter-spacing: 0.5em; opacity: 0.9; }
 
 @media (max-width: 1100px) {
   .visual-grid-container { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 350px); }

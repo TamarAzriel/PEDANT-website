@@ -159,6 +159,10 @@
 </head>
 
 <body>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <img src="images/logo.png" alt="PÉDANT" class="preloader-logo">
+  </div>
 
   <header class="luxury-header" id="main-header">
     <nav class="nav-container">
@@ -249,6 +253,13 @@
   <script src="JavaScript/cart.js"></script>
   <script src="JavaScript/auth.js"></script>
   <script>
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      setTimeout(() => {
+        preloader.classList.add('hidden');
+      }, 1500);
+    });
+
     window.addEventListener('scroll', () => {
       const header = document.getElementById('main-header');
       if (window.scrollY > 50) header.classList.add('scrolled');

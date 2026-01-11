@@ -8,6 +8,10 @@
 </head>
 
 <body>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <img src="images/logo.png" alt="PÉDANT" class="preloader-logo">
+  </div>
 
   <header class="luxury-header">
     <nav class="nav-container">
@@ -140,6 +144,13 @@
 
   <script src="JavaScript/auth.js"></script>
   <script>
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      setTimeout(() => {
+        preloader.classList.add('hidden');
+      }, 1500);
+    });
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('reveal');

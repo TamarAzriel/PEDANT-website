@@ -36,6 +36,10 @@
 </head>
 
 <body>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <img src="images/logo.png" alt="PÉDANT" class="preloader-logo">
+  </div>
 
   <header class="luxury-header" id="main-header">
     <nav class="nav-container">
@@ -68,15 +72,15 @@
   <main>
     <!-- Hero Section -->
     <section class="hero-editorial">
-      <img src="images/hero-model.jpg" class="hero-img" alt="Luxury Skincare">
+      <img src="images/hero-model.jpg" class="hero-img reveal-on-scroll reveal-scale" alt="Luxury Skincare">
       <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 class="luxury-display" style="font-weight: 100; letter-spacing: 0.05em; margin-bottom: 1.5rem;">THE ESSENCE<br>OF TOMORROW</h1>
-        <p class="luxury-subheading" style="color: #fff; opacity: 0.9; letter-spacing: 0.5em; margin-bottom: 3.5rem; font-size: 10px;">A NEW ERA OF LUXURY SKINCARE</p>
-        <a href="catalog.html" class="hero-btn" style="padding: 1.5rem 4rem; border: 1px solid #fff; letter-spacing: 0.4em; font-size: 11px;">SHOP COLLECTION</a>
+      <div class="hero-content">
+        <h1 class="luxury-display reveal-on-scroll delay-1" style="font-weight: 200; letter-spacing: 0.1em; margin-bottom: 1rem; filter: drop-shadow(0 0 30px rgba(0,0,0,0.5));">THE ESSENCE<br>OF TOMORROW</h1>
+        <p class="luxury-subheading reveal-on-scroll delay-2" style="color: #fff; opacity: 0.8; letter-spacing: 0.6em; margin-bottom: 4rem; font-size: 11px; font-weight: 400;">A NEW ERA OF LUXURY SKINCARE</p>
+        <a href="catalog.html" class="hero-btn reveal-on-scroll delay-3" style="padding: 1.5rem 5rem; border: 1px solid rgba(255,255,255,0.8); letter-spacing: 0.5em; font-size: 10px; background: rgba(0,0,0,0.2);">SHOP COLLECTION</a>
       </div>
       
-      <div class="scroll-indicator-v2">
+      <div class="scroll-indicator-v2 reveal-on-scroll delay-4">
         <span class="scroll-text">Scroll</span>
         <div class="scroll-line-v2"></div>
       </div>
@@ -84,11 +88,11 @@
 
     <!-- Vision Section -->
     <section id="vision" class="section-padding">
-      <div class="container reveal-on-scroll">
+      <div class="container">
         <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-          <span class="luxury-subheading block mb-8">THE VISION</span>
-          <h2 class="luxury-display" style="font-size: clamp(2rem, 6vw, 4rem); margin-bottom: 3rem;">Purity in<br><span style="opacity: 0.3;">Every Formulation</span></h2>
-          <p class="luxury-body" style="line-height: 2.2; opacity: 0.6; font-size: 1.1rem;">
+          <span class="luxury-subheading block mb-8 reveal-on-scroll delay-1">THE VISION</span>
+          <h2 class="luxury-display reveal-on-scroll delay-2" style="font-size: clamp(2rem, 6vw, 4rem); margin-bottom: 3rem;">Purity in<br><span style="opacity: 0.3;">Every Formulation</span></h2>
+          <p class="luxury-body reveal-on-scroll delay-3" style="line-height: 2.2; opacity: 0.6; font-size: 1.1rem;">
             PÉDANT represents the intersection of clinical precision and Parisian elegance. We create skincare that doesn't just treat the surface, but reveals your most luminous truth through architectural formulation.
           </p>
         </div>
@@ -98,24 +102,24 @@
     <!-- Visual Atmosphere -->
     <section class="section-padding" style="background-color: #fcfcfc;">
       <div class="container">
-        <span class="luxury-subheading block mb-12 text-center" style="opacity: 0.3;">THE ATMOSPHERE</span>
+        <span class="luxury-subheading block mb-12 text-center reveal-on-scroll" style="opacity: 0.3;">THE ATMOSPHERE</span>
         <div class="visual-grid-container">
-          <div class="grid-item row-2 reveal-on-scroll"><img src="images/grid-1.jpg" class="grid-img" alt=""></div>
-          <div class="grid-item reveal-on-scroll"><img src="images/grid-2.jpg" class="grid-img" alt=""></div>
-          <div class="grid-item reveal-on-scroll"><img src="images/grid-3.jpg" class="grid-img" alt=""></div>
-          <div class="grid-item row-2 reveal-on-scroll"><img src="images/grid-4.jpg" class="grid-img" alt=""></div>
+          <div class="grid-item row-2 reveal-on-scroll reveal-scale delay-1"><img src="images/grid-1.jpg" class="grid-img" alt=""></div>
+          <div class="grid-item reveal-on-scroll reveal-scale delay-2"><img src="images/grid-2.jpg" class="grid-img" alt=""></div>
+          <div class="grid-item reveal-on-scroll reveal-scale delay-3"><img src="images/grid-3.jpg" class="grid-img" alt=""></div>
+          <div class="grid-item row-2 reveal-on-scroll reveal-scale delay-4"><img src="images/grid-4.jpg" class="grid-img" alt=""></div>
         </div>
       </div>
     </section>
 
     <!-- Support Section -->
     <section class="section-padding">
-      <div class="faq-container reveal-on-scroll">
-        <span class="luxury-subheading block mb-12 text-center" style="opacity: 0.3;">SUPPORT</span>
-        <h2 class="luxury-display text-center mb-16" style="font-size: 2.5rem;">Questions & Answers</h2>
+      <div class="faq-container">
+        <span class="luxury-subheading block mb-12 text-center reveal-on-scroll delay-1" style="opacity: 0.3;">SUPPORT</span>
+        <h2 class="luxury-display text-center mb-16 reveal-on-scroll delay-2" style="font-size: 2.5rem;">Questions & Answers</h2>
         
         <div class="accordion">
-          <div class="accordion-item reveal-on-scroll">
+          <div class="accordion-item reveal-on-scroll delay-3">
             <button class="accordion-trigger" onclick="toggleAccordion(this)">
               <span>What is the PÉDANT philosophy?</span>
               <span>+</span>
@@ -124,13 +128,40 @@
               <p>We believe in professional-grade results delivered through a lifestyle of Parisian elegance and monochromatic simplicity.</p>
             </div>
           </div>
-          <div class="accordion-item reveal-on-scroll">
+          <div class="accordion-item reveal-on-scroll delay-4">
             <button class="accordion-trigger" onclick="toggleAccordion(this)">
               <span>Shipping & Delivery</span>
               <span>+</span>
             </button>
             <div class="accordion-content">
               <p>We offer global white-glove delivery for all our collections. Standard shipping takes 3-5 business days.</p>
+            </div>
+          </div>
+          <div class="accordion-item reveal-on-scroll delay-5">
+            <button class="accordion-trigger" onclick="toggleAccordion(this)">
+              <span>Are PÉDANT products suitable for sensitive skin?</span>
+              <span>+</span>
+            </button>
+            <div class="accordion-content">
+              <p>Absolutely. All our formulations are dermatologist-tested and designed to be gentle yet effective, focusing on maintaining the skin's natural barrier.</p>
+            </div>
+          </div>
+          <div class="accordion-item reveal-on-scroll delay-5">
+            <button class="accordion-trigger" onclick="toggleAccordion(this)">
+              <span>Do you test on animals?</span>
+              <span>+</span>
+            </button>
+            <div class="accordion-content">
+              <p>PÉDANT is committed to ethical beauty. We are 100% cruelty-free and never test our products or ingredients on animals.</p>
+            </div>
+          </div>
+          <div class="accordion-item reveal-on-scroll delay-5">
+            <button class="accordion-trigger" onclick="toggleAccordion(this)">
+              <span>How can I track my order?</span>
+              <span>+</span>
+            </button>
+            <div class="accordion-content">
+              <p>Once your order is dispatched, you will receive a confirmation email with a personal tracking number and a link to follow its journey to you.</p>
             </div>
           </div>
         </div>
@@ -158,7 +189,7 @@
         <span class="luxury-subheading">CONNECT WITH US</span>
         <h2 class="luxury-display" style="font-size: 2rem; margin-top: 1rem;">Contact</h2>
       </div>
-      <form class="luxury-form" onsubmit="event.preventDefault(); alert('Message sent successfully.'); closeContactModal();">
+      <form class="luxury-form" onsubmit="handleContactSubmit(event)">
         <div class="form-grid">
           <div class="form-group">
             <label>Full Name</label>
@@ -209,6 +240,20 @@
 
   <script src="JavaScript/auth.js"></script>
   <script>
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      setTimeout(() => {
+        preloader.classList.add('hidden');
+        
+        // הפעלת ההנפשות של ה-Hero רק אחרי שה-Preloader נעלם
+        setTimeout(() => {
+          document.querySelectorAll('.hero-editorial .reveal-on-scroll').forEach(el => {
+            el.classList.add('reveal');
+          });
+        }, 300);
+      }, 1500); // נותן זמן ללוגו לפעום ולהרשים
+    });
+
     window.addEventListener('scroll', () => {
       const header = document.getElementById('main-header');
       if (window.scrollY > 50) header.classList.add('scrolled');
@@ -228,6 +273,34 @@
 
     function closeContactModal() {
       document.getElementById('contact-modal').classList.remove('active');
+    }
+
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const submitBtn = form.querySelector('button');
+      
+      submitBtn.textContent = 'SENDING...';
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        const modalInside = document.querySelector('.contact-modal-card');
+        modalInside.style.opacity = '0';
+        modalInside.style.transform = 'translateY(-20px)';
+        
+        setTimeout(() => {
+          modalInside.innerHTML = `
+            <div style="text-align: center; padding: 2rem 0;">
+              <span class="luxury-subheading">MESSAGE RECEIVED</span>
+              <h2 class="luxury-display" style="font-size: 2rem; margin-top: 1.5rem; margin-bottom: 2rem;">THANK YOU</h2>
+              <p class="luxury-body" style="opacity: 0.5;">Our concierge team will review your inquiry and reach out to you within 24 hours.</p>
+              <button class="hero-btn" onclick="closeContactModal()" style="width: 100%; margin-top: 3rem; background: #000; color: #fff; border: none;">CLOSE</button>
+            </div>
+          `;
+          modalInside.style.opacity = '1';
+          modalInside.style.transform = 'translateY(0)';
+        }, 600);
+      }, 1500);
     }
 
     const observer = new IntersectionObserver((entries) => {

@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="item-name">${item.name}</div>
                 <div class="item-qty">Qty: ${qty}</div>
             </div>
-            <div class="item-price">${itemTotal} NIS</div>
+            <div class="item-price">€${itemTotal}</div>
         `;
 
         summaryList.appendChild(itemDiv);
@@ -41,10 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // עדכון הסכום הכולל
     if (totalPriceElement) {
-        totalPriceElement.textContent = total + " NIS";
+        totalPriceElement.textContent = "€" + total;
     }
 
-    // 3. טיפול בטופס (סימולציה)
+    // 3. טיפול בטופס (סימולציה של הצלחה יוקרתית)
     const checkoutForm = document.getElementById("checkout-form");
     if (checkoutForm) {
         checkoutForm.addEventListener("submit", function (event) {
@@ -54,19 +54,38 @@ document.addEventListener("DOMContentLoaded", () => {
             const submitBtn = checkoutForm.querySelector("button");
             
             // אפקט כפתור נטען
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = "Processing...";
+            submitBtn.textContent = "VERIFYING...";
             submitBtn.disabled = true;
 
             setTimeout(() => {
-                alert(`Thank you, ${fullname}!\nYour order has been placed successfully.`);
+                // יצירת מספר הזמנה רנדומלי יוקרתי
+                const orderId = "PD" + Math.floor(100000 + Math.random() * 900000);
+                
+                // יצירת ה-Overlay של ההצלחה ב-JS (כדי למנוע שינויים ב-HTML)
+                const overlay = document.createElement('div');
+                overlay.className = 'success-overlay-v2';
+                overlay.innerHTML = `
+                    <div class="success-card-v2">
+                        <span class="order-number-v2">ORDER #${orderId}</span>
+                        <span class="luxury-subheading">SUCCESSFUL TRANSACTION</span>
+                        <h2 class="luxury-display" style="font-size: 2.5rem; margin-top: 1.5rem; margin-bottom: 2rem;">
+                            THANK YOU, ${fullname.split(' ')[0]}
+                        </h2>
+                        <p class="luxury-body" style="opacity: 0.5;">
+                            A confirmation email with your order details has been sent to your inbox.<br>
+                            Your journey with PÉDANT has officially begun.
+                        </p>
+                        <button class="success-btn-v2" onclick="window.location.href='index.html'">BACK TO ARCHIVE</button>
+                    </div>
+                `;
+                document.body.appendChild(overlay);
+                
+                // הפעלת האנימציה
+                setTimeout(() => overlay.classList.add('active'), 100);
                 
                 // ריקון הסל
                 localStorage.removeItem("cart");
-                
-                // חזרה לדף הבית
-                window.location.href = "index.html";
-            }, 1500);
+            }, 2000);
         });
     }
 });

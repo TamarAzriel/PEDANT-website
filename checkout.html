@@ -42,6 +42,10 @@
 </head>
 
 <body>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <img src="images/logo.png" alt="PÉDANT" class="preloader-logo">
+  </div>
 
   <header class="luxury-header">
     <nav class="nav-container">
@@ -77,15 +81,15 @@
         <h1 class="luxury-display mb-12" style="font-size: 2.5rem;">Complete Your Order</h1>
         
         <h2>Shipping Information</h2>
-        <form id="checkout-form" onsubmit="event.preventDefault(); alert('Order placed successfully.'); window.location.href='index.html';">
+        <form id="checkout-form">
           <div class="luxury-input-group">
             <label>Full Name</label>
-            <input type="text" class="luxury-input" placeholder="JANE DOE" required>
+            <input type="text" id="fullname" class="luxury-input" placeholder="JANE DOE" required>
           </div>
           
           <div class="luxury-input-group">
             <label>Email Address</label>
-            <input type="email" class="luxury-input" placeholder="JANE@EXAMPLE.COM" required>
+            <input type="email" id="email" class="luxury-input" placeholder="JANE@EXAMPLE.COM" required>
           </div>
           
           <div class="luxury-input-group">
@@ -173,6 +177,13 @@
   <script src="JavaScript/auth.js"></script>
   <script src="JavaScript/checkout.js?v=2"></script> 
   <script>
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      setTimeout(() => {
+        preloader.classList.add('hidden');
+      }, 1500);
+    });
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('reveal');
