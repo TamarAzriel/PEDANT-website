@@ -2,104 +2,168 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>Profile – PÉDANT Cosmetic</title>
+  <title>My Profile | PÉDANT Paris</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/luxury.css">
+  <style>
+    .profile-main { padding-top: 200px; min-height: 90vh; background-color: hsl(var(--background)); }
+    .profile-container { max-width: 600px; margin: 0 auto; padding: 0 5%; }
+    
+    .profile-header { text-align: center; margin-bottom: 5rem; }
+    
+    .profile-card-luxury { 
+      background: #fff; 
+      padding: 4rem; 
+      border: 1px solid hsl(var(--border)); 
+      animation: fade-in 0.8s ease-out;
+    }
+    
+    .profile-field-luxury { margin-bottom: 2.5rem; }
+    .profile-field-luxury label { 
+      display: block; 
+      font-size: 9px; 
+      text-transform: uppercase; 
+      letter-spacing: 0.3em; 
+      color: hsla(var(--foreground), 0.4); 
+      margin-bottom: 0.75rem;
+    }
+    .profile-field-luxury p { 
+      font-size: 1.1rem; 
+      font-weight: 300; 
+      letter-spacing: 0.02em; 
+      color: hsl(var(--foreground));
+    }
+    
+    .profile-actions { display: flex; gap: 1.5rem; margin-top: 4rem; }
+    .btn-profile { 
+      flex: 1; 
+      padding: 1.25rem; 
+      font-size: 0.7rem; 
+      text-transform: uppercase; 
+      letter-spacing: 0.3em; 
+      cursor: pointer; 
+      transition: var(--transition);
+      text-align: center;
+      text-decoration: none;
+    }
+    .btn-edit { background: #000; color: #fff; border: none; }
+    .btn-edit:hover { background: #333; }
+    .btn-logout-outline { background: transparent; color: #000; border: 1px solid hsla(var(--foreground), 0.1); }
+    .btn-logout-outline:hover { border-color: #000; }
+  </style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">
-      <a href="index.html"><img src="images/logo.png" alt="PÉDANT Cosmetic Logo"></a>
-    </div>
+  <header class="luxury-header">
+    <nav class="nav-container">
+      <div class="header-left">
+        <a href="index.html" class="logo-text">
+          <img src="images/logo.png" alt="PÉDANT" class="logo-img">
+        </a>
+      </div>
 
-    <nav>
-      <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="catalog.html">CATALOG</a></li>
-        <li><a href="about.html">ABOUT</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li id="nav-login" style="display:none;"><a href="login.html">LOGIN</a></li>
-        <li id="nav-signup" style="display:none;"><a href="signup.html">SIGN UP</a></li>
-        <li id="nav-profile-item" style="display:none;"><a href="profile.html">PROFILE</a></li>
-        <li id="nav-logout" style="display:none;"><a href="#" onclick="logout(event)">LOGOUT</a></li>
-        <li><a href="cart.html"><img src="images/cart.png" class="cart-icon" alt="Cart"></a></li>
+      <ul class="nav-links hidden lg:flex">
+        <li><a href="index.html#vision" class="luxury-link">THE VISION</a></li>
+        <li><a href="catalog.html" class="luxury-link">COLLECTIONS</a></li>
+        <li><a href="about.html" class="luxury-link">ABOUT</a></li>
       </ul>
+
+      <div class="header-right">
+        <div class="auth-links">
+          <a href="login.html" id="nav-login" class="luxury-link">LOGIN</a>
+          <a href="signup.html" id="nav-signup" class="luxury-link">JOIN</a>
+        </div>
+        <a href="cart.html" class="cart-wrapper">
+          <img src="images/cart.png" alt="Cart" class="cart-icon">
+        </a>
+      </div>
     </nav>
   </header>
 
-  <div class="site-wrapper">
-    <section class="profile-section">
-      <div class="profile-container">
-        <h2>My Profile</h2>
+  <main class="profile-main">
+    <div class="profile-container reveal-on-scroll">
+      <div class="profile-header">
+        <span class="luxury-subheading">PERSONAL SPACE</span>
+        <h1 class="luxury-display">My Profile</h1>
+      </div>
+      
+      <div class="profile-card-luxury">
+        <div class="profile-field-luxury">
+          <label>Full Name</label>
+          <p id="profile-name">Guest User</p>
+        </div>
         
-        <div id="profile-content">
-          <div class="profile-card">
-            <div class="profile-info">
-              <h3>User Information</h3>
-              
-              <div class="profile-field">
-                <label>Full Name:</label>
-                <p id="profile-name"></p>
-              </div>
-              
-              <div class="profile-field">
-                <label>Email:</label>
-                <p id="profile-email"></p>
-              </div>
-              
-              <div class="profile-field">
-                <label>Member Since:</label>
-                <p id="profile-date"></p>
-              </div>
-            </div>
-            
-            <div class="profile-actions">
-              <button class="btn-edit" onclick="editProfile()">Edit Profile</button>
-              <button class="btn-logout" onclick="logout()">Logout</button>
-            </div>
-          </div>
+        <div class="profile-field-luxury">
+          <label>Email Address</label>
+          <p id="profile-email">guest@pedant.com</p>
+        </div>
+        
+        <div class="profile-field-luxury">
+          <label>Member Since</label>
+          <p id="profile-date">January 2026</p>
+        </div>
+
+        <div class="profile-actions">
+          <button class="btn-profile btn-edit" onclick="alert('Edit profile coming soon')">Edit Profile</button>
+          <button class="btn-profile btn-logout-outline" onclick="logout(event)">Logout</button>
         </div>
       </div>
-    </section>
+    </div>
+  </main>
 
-    <footer class="site-footer">
-      <div class="footer-wrapper">
-        <div class="footer-logo-area">
-          <img src="images/logo.png" class="footer-logo" alt="Pédant Cosmetic Logo">
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="PÉDANT">
+          <p class="footer-text">The future of luxury skincare. Parisian precision, global vision.</p>
         </div>
-
-        <div class="footer-line"></div>
-
-        <div class="footer-columns">
-          <div class="footer-col-right" dir="rtl">
-            <p>הצהרת נגישות</p>
-            <p>הצהרת פרטיות</p>
-          </div>
-
-          <div class="footer-middle-line"></div>
-
-          <div class="footer-col-left">
-            <p>pedantcosmetic@gmail.com</p>
-            <p>Tel: 0546429448</p>
-          </div>
+        
+        <div>
+          <span class="footer-col-title">Navigate</span>
+          <ul class="footer-list">
+            <li><a href="index.html#vision">The Vision</a></li>
+            <li><a href="catalog.html">Collections</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
         </div>
-
-        <div class="footer-social">
-          <a href="https://www.instagram.com/merav_lavie_pedant?igsh=NHlvdTgxNm9peXd6" target="_blank">
-            <img src="images/instagram.png" class="footer-instagram" alt="Instagram">
-          </a>
+        
+        <div>
+          <span class="footer-col-title">Support</span>
+          <ul class="footer-list">
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="#">Size Guide</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <span class="footer-col-title">Newsletter</span>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter email" class="newsletter-input">
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+          </form>
         </div>
       </div>
-    </footer>
-
-  </div>
+      
+      <div class="footer-bottom">
+        <div>© 2026 PÉDANT PARIS. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
 
   <script src="JavaScript/auth.js"></script>
   <script src="JavaScript/profile.js"></script>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('reveal');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>

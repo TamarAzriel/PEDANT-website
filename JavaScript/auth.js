@@ -1,167 +1,113 @@
 // auth.js - ניהול הרשמה ו-התחברות
 
-// מסד נתונים דמוי-משתמשים (בפועל זה היה צריך להיות בשרת)
 let usersDatabase = JSON.parse(localStorage.getItem('usersDatabase')) || [];
 
-// הוספת משתמש לדוגמה לבדיקה (רק אם אין משתמשים)
-if (usersDatabase.length === 0) {
-  usersDatabase = [
-    {
-      name: "Test User",
-      email: "test@example.com",
-      password: "123456",
-      createdAt: new Date().toISOString()
-    }
-  ];
-  localStorage.setItem('usersDatabase', JSON.stringify(usersDatabase));
-  console.log('Test user created:', usersDatabase);
+// פונקציית עזר להצגת הודעה יוקרתית בתוך הכרטיסייה
+function showSuccessState(title, message, nextStep) {
+  const cardContent = document.querySelector('.auth-grid');
+  if (!cardContent) {
+    // אם אנחנו לא בדף התחברות, פשוט נריץ את הצעד הבא
+    if (nextStep) nextStep();
+    return;
+  }
+
+  cardContent.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+  cardContent.style.opacity = '0';
+  cardContent.style.transform = 'translateY(-20px)';
+
+  setTimeout(() => {
+    const card = document.querySelector('.luxury-auth-card');
+    card.innerHTML = `
+      <div class="success-state" style="text-align: center; padding: 4rem 0; animation: fade-up 1.2s ease forwards;">
+        <div class="success-line" style="width: 40px; height: 1px; background: #000; margin: 0 auto 3rem; opacity: 0.2;"></div>
+        <span class="luxury-subheading" style="display: block; margin-bottom: 1.5rem; letter-spacing: 0.5em;">${title}</span>
+        <h2 class="luxury-display" style="font-size: 2.5rem; margin-bottom: 2rem;">${message}</h2>
+        <p class="luxury-body" style="opacity: 0.4;">Redirecting...</p>
+      </div>
+    `;
+    
+    setTimeout(nextStep, 2000);
+  }, 800);
 }
 
-// בדיקה בטעינת הדף
 document.addEventListener('DOMContentLoaded', function() {
   updateNavBar();
   
-  // עיבוד טופס ה-login
   const loginForm = document.getElementById('login-form');
-  if (loginForm) {
-    loginForm.addEventListener('submit', handleLogin);
-  }
+  if (loginForm) loginForm.addEventListener('submit', handleLogin);
   
-  // עיבוד טופס ה-signup
   const signupForm = document.getElementById('signup-form');
-  if (signupForm) {
-    signupForm.addEventListener('submit', handleSignup);
-  }
+  if (signupForm) signupForm.addEventListener('submit', handleSignup);
 });
 
-// עדכון ה-navigation bar בהתאם למצב ההתחברות
+// עדכון ה-Navbar בזמן אמת
 function updateNavBar() {
   const user = JSON.parse(localStorage.getItem('currentUser'));
   
-  const profileItem = document.getElementById('nav-profile-item');
-  const loginItem = document.getElementById('nav-login');
-  const signupItem = document.getElementById('nav-signup');
-  const logoutItem = document.getElementById('nav-logout');
+  const loginLink = document.getElementById('nav-login');
+  const signupLink = document.getElementById('nav-signup');
+  const profileLink = document.getElementById('nav-profile');
+  const logoutLink = document.getElementById('nav-logout');
   
   if (user) {
-    // המשתמש מחובר
-    if (profileItem) profileItem.style.display = 'block';
-    if (loginItem) loginItem.style.display = 'none';
-    if (signupItem) signupItem.style.display = 'none';
-    if (logoutItem) logoutItem.style.display = 'block';
+    if (loginLink) loginLink.style.display = 'none';
+    if (signupLink) signupLink.style.display = 'none';
+    if (profileLink) {
+      profileLink.style.display = 'block';
+      profileLink.textContent = user.name.toUpperCase();
+    }
+    if (logoutLink) logoutLink.style.display = 'block';
   } else {
-    // המשתמש לא מחובר
-    if (profileItem) profileItem.style.display = 'none';
-    if (loginItem) loginItem.style.display = 'block';
-    if (signupItem) signupItem.style.display = 'block';
-    if (logoutItem) logoutItem.style.display = 'none';
+    if (loginLink) loginLink.style.display = 'block';
+    if (signupLink) signupLink.style.display = 'block';
+    if (profileLink) profileLink.style.display = 'none';
+    if (logoutLink) logoutLink.style.display = 'none';
   }
 }
 
-// עיבוד התחברות
 function handleLogin(event) {
   event.preventDefault();
+  const email = document.getElementById('login-email').value.trim();
+  const password = document.getElementById('login-password').value.trim();
   
-  console.log('Form submitted');
-  const emailInput = document.getElementById('login-email');
-  const passwordInput = document.getElementById('login-password');
-  
-  const email = emailInput.value.trim();
-  const password = passwordInput.value.trim();
-  
-  console.log('Email:', email, 'Password:', password);
-  console.log('Users in database:', usersDatabase);
-  
-  if (!email || !password) {
-    alert('אנא מלא את כל השדות!');
-    return;
-  }
-  
-  // חיפוש משתמש במסד הנתונים
   const user = usersDatabase.find(u => u.email === email && u.password === password);
   
-  console.log('Found user:', user);
-  
   if (user) {
-    // התחברות מוצלחת
-    const userToStore = {
-      name: user.name,
-      email: user.email,
-      createdAt: user.createdAt
-    };
-    localStorage.setItem('currentUser', JSON.stringify(userToStore));
-    alert('ברוכים הבאים ' + user.name + '!');
-    window.location.href = 'profile.html';
+    localStorage.setItem('currentUser', JSON.stringify({ name: user.name, email: user.email }));
+    showSuccessState('ACCESS GRANTED', `Welcome back, ${user.name}`, () => {
+      window.location.href = 'index.html';
+    });
   } else {
-    alert('שגיאה: דוא"ל או סיסמה לא נכונים!\n\nאם אתה משתמש חדש, אנא התחבר תחילה דרך Sign Up');
+    alert('Invalid credentials. Please try again.');
   }
 }
 
-// עיבוד רישום
 function handleSignup(event) {
   event.preventDefault();
+  const name = document.getElementById('signup-name').value.trim();
+  const email = document.getElementById('signup-email').value.trim();
+  const password = document.getElementById('signup-password').value.trim();
   
-  const nameInput = document.getElementById('signup-name');
-  const emailInput = document.getElementById('signup-email');
-  const passwordInput = document.getElementById('signup-password');
-  
-  const name = nameInput.value.trim();
-  const email = emailInput.value.trim();
-  const password = passwordInput.value.trim();
-  
-  console.log('Signup attempt:', { name, email, password });
-  
-  if (!name || !email || !password) {
-    alert('אנא מלא את כל השדות!');
+  if (!name || !email || !password) return;
+
+  if (usersDatabase.find(u => u.email === email)) {
+    alert('Account already exists with this email.');
     return;
   }
   
-  if (password.length < 6) {
-    alert('הסיסמה חייבת להיות לפחות 6 תווים!');
-    return;
-  }
-  
-  // בדיקה אם המשתמש כבר קיים
-  const existingUser = usersDatabase.find(u => u.email === email);
-  
-  if (existingUser) {
-    alert('שגיאה: דוא"ל זה כבר רשום!');
-    return;
-  }
-  
-  // יצירת משתמש חדש
-  const newUser = {
-    name: name,
-    email: email,
-    password: password,
-    createdAt: new Date().toISOString()
-  };
-  
-  // הוספת למסד הנתונים
+  const newUser = { name, email, password, createdAt: new Date().toISOString() };
   usersDatabase.push(newUser);
   localStorage.setItem('usersDatabase', JSON.stringify(usersDatabase));
+  localStorage.setItem('currentUser', JSON.stringify({ name, email }));
   
-  console.log('User registered successfully:', newUser);
-  
-  // התחברות אוטומטית
-  const userToStore = {
-    name: newUser.name,
-    email: newUser.email,
-    createdAt: newUser.createdAt
-  };
-  localStorage.setItem('currentUser', JSON.stringify(userToStore));
-  
-  alert('חשבון נוצר בהצלחה! ברוכים הבאים ' + name + '!');
-  window.location.href = 'profile.html';
+  showSuccessState('JOURNEY BEGUN', `Welcome to PÉDANT, ${name}`, () => {
+    window.location.href = 'index.html';
+  });
 }
 
-// התנתקות
+// פונקציית התנתקות
 function logout(event) {
-  if (event) {
-    event.preventDefault();
-  }
-  
+  if (event) event.preventDefault();
   localStorage.removeItem('currentUser');
-  alert('הותקנת בהצלחה!');
   window.location.href = 'index.html';
 }

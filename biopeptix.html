@@ -1,54 +1,166 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <title>Biopeptix Products – PÉDANT Cosmetic</title>
+  <meta charset="utf-8">
+  <title>Biopeptix | PÉDANT Paris</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Lato:wght@300;400&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/luxury.css">
+  <style>
+    .brand-main { padding-top: 200px; background-color: #ffffff; padding-bottom: 120px; }
+    .brand-container { max-width: 1400px; margin: 0 auto; padding: 0 5%; }
+    
+    .brand-header { margin-bottom: 100px; text-align: left; }
+    .brand-header .luxury-display { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 100; margin-top: 1.5rem; text-transform: uppercase; }
+    
+    /* גריד מוצרים יוקרתי */
+    .product-grid-v7 { 
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px 35px; 
+    }
+
+    /* כרטיסיית קפסולה אפורה צפה - בדיוק כמו בקטלוג */
+    .product-card-capsule {
+      background-color: #eeeeee; /* אפור עמוק ויוקרתי יותר */
+      border-radius: 60px; /* עיגול פינות קיצוני */
+      padding: 4.5rem 3rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .product-card-capsule:hover {
+      transform: translateY(-20px);
+      background-color: #ffffff;
+      box-shadow: 0 50px 100px rgba(0,0,0,0.04);
+    }
+
+    .product-img-capsule-wrapper {
+      width: 100%;
+      aspect-ratio: 1/1;
+      margin-bottom: 3rem;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .product-img-capsule {
+      max-width: 85%;
+      max-height: 85%;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+      transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .product-card-capsule:hover .product-img-capsule { transform: scale(1.15); }
+
+    .product-brand-capsule {
+      font-size: 7px; text-transform: uppercase; letter-spacing: 0.6em;
+      color: hsla(var(--foreground), 0.2); margin-bottom: 1.2rem;
+    }
+
+    .product-title-capsule {
+      font-size: 0.95rem; font-weight: 300; letter-spacing: 0.08em;
+      margin-bottom: 1.5rem; text-transform: uppercase;
+    }
+
+    .product-price-capsule {
+      font-size: 0.85rem; font-weight: 400; letter-spacing: 0.2em; opacity: 0.4;
+    }
+
+    /* כפתור ADD TO BAG - Black Label */
+    .add-to-bag-capsule {
+      margin-top: 2.5rem;
+      background: #000; color: #fff; border: none;
+      padding: 1.1rem 3rem; font-size: 0.65rem; text-transform: uppercase;
+      letter-spacing: 0.4em; border-radius: 2px; cursor: pointer;
+      opacity: 0; transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .product-card-capsule:hover .add-to-bag-capsule {
+      opacity: 1; transform: translateY(0);
+    }
+
+    @media (max-width: 1024px) { .product-grid-v7 { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 700px) { .product-grid-v7 { grid-template-columns: 1fr; } }
+  </style>
 </head>
 
 <body>
-
-  <header>
-    <div class="logo">
-      <a href="index.html"><img src="images/logo.png" alt="PÉDANT Cosmetic Logo"></a>
-    </div>
-
-    <nav>
-      <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="catalog.html">CATALOG</a></li>
-        <li><a href="about.html">ABOUT</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li id="nav-login" style="display:none;"><a href="login.html">LOGIN</a></li>
-        <li id="nav-signup" style="display:none;"><a href="signup.html">SIGN UP</a></li>
-        <li id="nav-profile-item" style="display:none;"><a href="profile.html">PROFILE</a></li>
-        <li id="nav-logout" style="display:none;"><a href="#" onclick="logout(event)">LOGOUT</a></li>
-        <li><a href="cart.html"><img src="images/cart.png" class="cart-icon" alt="Cart"></a></li>
+  <header class="luxury-header">
+    <nav class="nav-container">
+      <div class="header-left"><a href="index.html" class="logo-text"><img src="images/logo.png" alt="PÉDANT" class="logo-img"></a></div>
+      <ul class="nav-links hidden lg:flex">
+        <li><a href="index.html#vision" class="luxury-link">THE VISION</a></li>
+        <li><a href="catalog.html" class="luxury-link">COLLECTIONS</a></li>
+        <li><a href="about.html" class="luxury-link">ABOUT</a></li>
       </ul>
+      <div class="header-right">
+        <div class="auth-links">
+          <a href="login.html" id="nav-login" class="luxury-link">LOGIN</a>
+          <a href="signup.html" id="nav-signup" class="luxury-link">JOIN</a>
+          <a href="profile.html" id="nav-profile" class="luxury-link" style="display: none;">PROFILE</a>
+          <a href="#" id="nav-logout" class="luxury-link" style="display: none;" onclick="logout(event)">LOGOUT</a>
+        </div>
+        <a href="cart.html" class="cart-wrapper"><img src="images/cart.png" alt="Cart" class="cart-icon"></a>
+      </div>
     </nav>
   </header>
 
-  <div class="site-wrapper">
-    <main class="catalog-page">
-      <h1 class="catalog-title">Biopeptix Products</h1>
-      <p class="catalog-subtitle">Advanced skincare by Biopeptix</p> <div class="brand-products"></div>
-    </main>
-  </div>
+  <main class="brand-main">
+    <div class="brand-container">
+      <div class="brand-header reveal-on-scroll">
+        <span class="luxury-subheading">CURATED LABEL</span>
+        <h1 class="luxury-display">Biopeptix</h1>
+        <p class="luxury-body mt-8 max-w-xl opacity-50">Active peptides and advanced cellular biotechnology designed to redefine skin vitality from within.</p>
+      </div>
+      <div class="product-grid-v7" id="product-list"></div>
+    </div>
+  </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="images/logo.png" alt="PÉDANT"><p class="footer-text">The future of luxury skincare. Parisian precision, global vision.</p></div>
+        <div><span class="footer-col-title">Navigate</span><ul class="footer-list"><li><a href="index.html#vision">The Vision</a></li><li><a href="catalog.html">Collections</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div><span class="footer-col-title">Newsletter</span><form class="newsletter-form"><input type="email" placeholder="Enter email" class="newsletter-input"><button type="submit" class="subscribe-btn">Subscribe</button></form></div>
+      </div>
+      <div class="footer-bottom"><div>© 2026 PÉDANT PARIS.</div></div>
+    </div>
+  </footer>
+
   <script src="JavaScript/auth.js"></script>
   <script src="JavaScript/products.js"></script>
-  
-  <script src="JavaScript/cart.js?v=4"></script> 
-  
+  <script src="JavaScript/cart.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      renderProducts('biopeptix');
-    });
+    function renderLuxuryProducts(brand) {
+      const container = document.getElementById("product-list");
+      const filtered = productsDatabase.filter(p => p.brand === brand);
+      container.innerHTML = filtered.map((p, i) => `
+        <div class="product-card-capsule reveal-on-scroll" style="transition-delay: ${i * 0.1}s">
+          <div class="product-img-capsule-wrapper">
+            <img src="${p.image}" class="product-img-capsule" alt="${p.name}">
+          </div>
+          <div class="product-info-capsule">
+            <span class="product-brand-capsule">${p.brand} | ${p.category}</span>
+            <h3 class="product-title-capsule">${p.name}</h3>
+            <div class="product-price-capsule">€${p.price.toFixed(2)}</div>
+            <button onclick="addToCart(${p.id})" class="add-to-bag-capsule">ADD TO BAG</button>
+          </div>
+        </div>
+      `).join("");
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('reveal'); });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+    }
+    document.addEventListener("DOMContentLoaded", () => { renderLuxuryProducts('Biopeptix'); });
   </script>
 </body>
 </html>

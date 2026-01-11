@@ -1,153 +1,171 @@
-// products.js - מסד הנתונים של המוצרים
+// products.js - Database of all PÉDANT products
 
 const productsDatabase = [
-  // --- Biopeptix ---
+  // --- Biopeptix Collection ---
   {
     id: 1,
-    brand: "biopeptix",
-    name: "Active Serum",
-    price: 290,
-    image: "images/biopeptix1.jpg.webp",
-    description: "סרום פעיל מבוסס פפטידים לשיקום העור."
+    brand: 'Biopeptix',
+    category: 'Face',
+    name: 'Cellular Serum',
+    description: 'Advanced peptide complex for deep cellular rejuvenation and skin vitality.',
+    price: 380,
+    image: 'images/biopeptix1.jpg.webp'
   },
   {
     id: 2,
-    brand: "biopeptix",
-    name: "Hydra Cream",
-    price: 210,
-    image: "images/biopeptix2.jpg.webp",
-    description: "קרם לחות אינטנסיבי לשימוש יומיומי."
+    brand: 'Biopeptix',
+    category: 'Face',
+    name: 'Active Elixir',
+    description: 'High-concentration botanical extracts for intensive hydration and glow.',
+    price: 350,
+    image: 'images/biopeptix2.jpg.webp'
   },
   {
     id: 3,
-    brand: "biopeptix",
-    name: "Face Soap",
-    price: 290,
-    image: "images/biopeptix3.jpg.webp",
-    description: "סבון פנים."
+    brand: 'Biopeptix',
+    category: 'Face',
+    name: 'Peptide Cream',
+    description: 'Structural reinforcement cream that firms and smooths fine lines.',
+    price: 420,
+    image: 'images/biopeptix3.jpg.webp'
   },
   {
     id: 4,
-    brand: "biopeptix",
-    name: "Soothing and Firming Serum",
-    price: 300,
-    image: "images/biopeptix4.jpg.webp",
-    description: "סרום הרגעה ומיצוק."
+    brand: 'Biopeptix',
+    category: 'Cleansing',
+    name: 'Pure Cleanser',
+    description: 'Gentle exfoliating wash that removes impurities while maintaining pH balance.',
+    price: 180,
+    image: 'images/biopeptix4.jpg.webp'
   },
   {
     id: 5,
-    brand: "biopeptix",
-    name: "3A Serum",
-    price: 350,
-    image: "images/biopeptix5.jpg.webp",
-    description: "הגנה מפני אור כחול."
+    brand: 'Biopeptix',
+    category: 'Face',
+    name: 'Bio-Repair Mask',
+    description: 'Intensive recovery mask for damaged or stressed skin barriers.',
+    price: 260,
+    image: 'images/biopeptix5.jpg.webp'
   },
   {
     id: 6,
-    brand: "biopeptix",
-    name: "Pome-Peel",
-    price: 360,
-    image: "images/biopeptix6.jpg.webp",
-    description: "פילינג חומצות פרי."
+    brand: 'Biopeptix',
+    category: 'Face',
+    name: 'Renewal Night Cream',
+    description: 'Overnight cellular renewal treatment for a refined skin texture.',
+    price: 390,
+    image: 'images/biopeptix6.jpg.webp'
   },
 
-  // --- Renew ---
-  {
-    id: 7,
-    brand: "renew",
-    name: "Energy Day Cream",
-    price: 220,
-    image: "images/renew1.jpg",
-    description: "קרם יום אנרגטי להזנת העור והענקת לחות."
-  },
-  {
-    id: 8,
-    brand: "renew",
-    name: "Retinol Night Serum",
-    price: 260,
-    image: "images/renew2.jpg.png",
-    description: "סרום לילה עם רטינול לשיפור מרקם העור."
-  },
-  {
-    id: 9,
-    brand: "renew",
-    name: "Comfort Glow Moisturizer",
-    price: 260,
-    image: "images/renew3.jpg.png",
-    description: "קרם לחות נגד קמטים."
-  },
+  // --- Dermalosophy Collection ---
   {
     id: 10,
-    brand: "renew",
-    name: "Depigmenting Mask",
-    price: 106,
-    image: "images/renew4.jpg.png",
-    description: "מסכת הבהרה."
+    brand: 'Dermalosophy',
+    category: 'Face',
+    name: 'Vitamin C Complex',
+    description: 'Powerful antioxidant serum that brightens skin tone and fights photo-aging.',
+    price: 290,
+    image: 'images/dermalosophy Vitamin C.jpg'
   },
   {
     id: 11,
-    brand: "renew",
-    name: "Drying Dermo Control",
-    price: 79,
-    image: "images/renew5.jpg.png",
-    description: "תרחיף מייבש."
+    brand: 'Dermalosophy',
+    category: 'Eyes',
+    name: 'Protective Serum',
+    description: 'Clinical barrier support against environmental stressors and pollutants.',
+    price: 310,
+    image: 'images/dermalosophy2.jpg.webp'
   },
   {
     id: 12,
-    brand: "renew",
-    name: "Neck & Decollete Firming",
-    price: 150,
-    image: "images/renew6.jpg.png",
-    description: "קרם צוואר ממצק"
+    brand: 'Dermalosophy',
+    category: 'Face',
+    name: 'Night Recovery',
+    description: 'Intensive overnight treatment that accelerates skin repair and healing.',
+    price: 450,
+    image: 'images/dermalosophy3.jpg.webp'
   },
-
-  // --- Dermalosophy ---
   {
     id: 13,
-    brand: "dermalosophy",
-    name: "Vitamin C Serum",
-    price: 250,
-    image: "images/dermalosophy Vitamin C.jpg",
-    description: "סרום ויטמין C למראה עור זוהר ואחיד."
+    brand: 'Dermalosophy',
+    category: 'Face',
+    name: 'Advanced Lift Cream',
+    description: 'Targeted lifting and firming treatment for mature skin.',
+    price: 480,
+    image: 'images/dermalosophy4.jpg.webp'
   },
   {
     id: 14,
-    brand: "dermalosophy",
-    name: "Calming Mask",
-    price: 230,
-    image: "images/dermalosophy2.jpg.webp",
-    description: "מסכת הרגעה לעור רגיש ואדמומי."
+    brand: 'Dermalosophy',
+    category: 'Face',
+    name: 'Pure Hydration Fluid',
+    description: 'Lightweight clinical hydration that balances oily and combination skin.',
+    price: 240,
+    image: 'images/dermalosophy5.jpg.webp'
   },
   {
     id: 15,
-    brand: "dermalosophy",
-    name: "Eye Cream",
-    price: 220,
-    image: "images/dermalosophy3.jpg.webp",
-    description: "קרם עיניים."
+    brand: 'Dermalosophy',
+    category: 'Eyes',
+    name: 'Ocular Care Balm',
+    description: 'Specialized formula for reducing dark circles and fine lines around eyes.',
+    price: 330,
+    image: 'images/dermalosophy6.jpg.webp'
+  },
+
+  // --- Renew Collection ---
+  {
+    id: 20,
+    brand: 'Renew',
+    category: 'Face',
+    name: 'Luminous Cream',
+    description: 'Therapeutic hydration that reveals a healthy, radiant complexion.',
+    price: 320,
+    image: 'images/renew1.jpg'
   },
   {
-    id: 16,
-    brand: "dermalosophy",
-    name: "Make up Blur",
-    price: 300,
-    image: "images/dermalosophy4.jpg.webp",
-    description: "מייקאפ תיקון."
-  },
-  {
-    id: 17,
-    brand: "dermalosophy",
-    name: "CLEANSER FOR ALL SKIN TYPES",
+    id: 21,
+    brand: 'Renew',
+    category: 'Face',
+    name: 'Hydra-Boost Serum',
+    description: 'Deep moisture infusion for dehydrated skin types needing immediate relief.',
     price: 280,
-    image: "images/dermalosophy5.jpg.webp",
-    description: "קצף ניקוי."
+    image: 'images/renew2.jpg.png'
   },
   {
-    id: 18,
-    brand: "dermalosophy",
-    name: "BLOCK SPF 50 DEMI MAKE UP",
-    price: 260,
-    image: "images/dermalosophy6.jpg.webp",
-    description: "קרם לחות עם מקדם הגנה."
+    id: 22,
+    brand: 'Renew',
+    category: 'Cleansing',
+    name: 'Gentle Peel',
+    description: 'Professional-grade enzymatic exfoliation for sensitive skin renewal.',
+    price: 240,
+    image: 'images/renew3.jpg.png'
+  },
+  {
+    id: 23,
+    brand: 'Renew',
+    category: 'Face',
+    name: 'Comfort Day Cream',
+    description: 'Soothing daily protection that calms redness and irritation.',
+    price: 210,
+    image: 'images/renew4.jpg.png'
+  },
+  {
+    id: 24,
+    brand: 'Renew',
+    category: 'Eyes',
+    name: 'Eye Vitality Gel',
+    description: 'Refreshing gel treatment that depuffs and awakens the eye area.',
+    price: 195,
+    image: 'images/renew5.jpg.png'
+  },
+  {
+    id: 25,
+    brand: 'Renew',
+    category: 'Face',
+    name: 'Intensive Nourish Cream',
+    description: 'Rich moisture balm for extremely dry or mature skin types.',
+    price: 360,
+    image: 'images/renew6.jpg.png'
   }
 ];

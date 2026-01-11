@@ -1,123 +1,158 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <title>Contact Us - PÉDANT</title>
+  <meta charset="utf-8">
+  <title>Contact Us | PÉDANT Paris</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/luxury.css">
+  <style>
+    .contact-main { padding-top: 160px; min-height: 80vh; background-color: hsl(var(--background)); padding-bottom: 120px; }
+    .contact-container { max-width: 600px; margin: 0 auto; padding: 0 5%; }
+    
+    .contact-form-luxury { margin-top: 4rem; }
+    .luxury-input-group { margin-bottom: 2.5rem; }
+    .luxury-input-group label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; color: hsl(var(--muted-foreground)); margin-bottom: 0.75rem; }
+    .luxury-input { width: 100%; background: transparent; border: none; border-bottom: 1px solid hsla(var(--foreground), 0.1); padding: 1rem 0; font-family: var(--font-main); font-size: 0.875rem; outline: none; transition: border-color 0.3s; }
+    .luxury-input:focus { border-bottom-color: hsl(var(--foreground)); }
+    
+    .submit-btn-luxury { 
+      width: 100%; background: #000; color: #fff; border: none; padding: 1.25rem; 
+      text-transform: uppercase; letter-spacing: 0.3em; font-size: 0.75rem; 
+      margin-top: 2rem; cursor: pointer; transition: 0.3s;
+    }
+    .submit-btn-luxury:hover { background: #333; }
+    
+    .contact-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 6rem; text-align: center; border-top: 1px solid hsl(var(--border)); pt-12; }
+    .info-item h3 { font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: hsl(var(--muted-foreground)); margin-bottom: 1rem; }
+    .info-item p, .info-item a { font-size: 0.875rem; text-decoration: none; color: inherit; }
+  </style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">
-      <a href="index.html"><img src="images/logo.png" alt="PÉDANT Cosmetic Logo"></a>
-    </div>
+  <header class="luxury-header">
+    <nav class="nav-container">
+      <div class="header-left">
+        <a href="index.html" class="logo-text">
+          <img src="images/logo.png" alt="PÉDANT" class="logo-img">
+        </a>
+      </div>
 
-    <nav>
-      <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="catalog.html">CATALOG</a></li>
-        <li><a href="about.html">ABOUT</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li id="nav-login" style="display:none;"><a href="login.html">LOGIN</a></li>
-        <li id="nav-signup" style="display:none;"><a href="signup.html">SIGN UP</a></li>
-        <li id="nav-profile-item" style="display:none;"><a href="profile.html">PROFILE</a></li>
-        <li id="nav-logout" style="display:none;"><a href="#" onclick="logout(event)">LOGOUT</a></li>
-        <li><a href="cart.html"><img src="images/cart.png" class="cart-icon" alt="Cart"></a></li>
+      <ul class="nav-links hidden lg:flex">
+        <li><a href="index.html#vision" class="luxury-link">THE VISION</a></li>
+        <li><a href="catalog.html" class="luxury-link">COLLECTIONS</a></li>
+        <li><a href="about.html" class="luxury-link">ABOUT</a></li>
       </ul>
+
+      <div class="header-right">
+        <div class="auth-links">
+          <a href="login.html" id="nav-login" class="luxury-link">LOGIN</a>
+          <a href="signup.html" id="nav-signup" class="luxury-link">JOIN</a>
+        </div>
+        <a href="cart.html" class="cart-wrapper">
+          <img src="images/cart.png" alt="Cart" class="cart-icon">
+        </a>
+      </div>
     </nav>
   </header>
 
-  <div class="site-wrapper">
-    <div class="contact-wrapper">
-    <h1 class="contact-title">Contact us</h1>
+  <main class="contact-main">
+    <div class="contact-container">
+      <div class="text-center mb-16 reveal-on-scroll">
+        <span class="luxury-subheading block mb-4">GET IN TOUCH</span>
+        <h1 class="luxury-display" style="font-size: 3rem;">Contact Us</h1>
+        <p class="luxury-body mt-4 opacity-50">Our team is here to assist you with your aesthetic journey.</p>
+      </div>
 
-    <form class="contact-form">
-      
-      <div class="form-row-split">
-        <div class="form-group">
-          <label class="form-label">Last name</label>
-          <input type="text" class="form-input" required>
+      <form class="contact-form-luxury reveal-on-scroll" onsubmit="event.preventDefault(); alert('Message sent successfully.');">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+          <div class="luxury-input-group">
+            <label>First Name</label>
+            <input type="text" class="luxury-input" placeholder="JANE" required>
+          </div>
+          <div class="luxury-input-group">
+            <label>Last Name</label>
+            <input type="text" class="luxury-input" placeholder="DOE" required>
+          </div>
         </div>
 
-        <div class="form-group">
-          <label class="form-label">First name</label>
-          <input type="text" class="form-input" required>
+        <div class="luxury-input-group">
+          <label>Email Address</label>
+          <input type="email" class="luxury-input" placeholder="JANE@EXAMPLE.COM" required>
+        </div>
+
+        <div class="luxury-input-group">
+          <label>Message</label>
+          <input type="text" class="luxury-input" placeholder="HOW CAN WE HELP YOU?" required>
+        </div>
+
+        <button type="submit" class="submit-btn-luxury">SEND MESSAGE</button>
+      </form>
+
+      <div class="contact-info-grid reveal-on-scroll">
+        <div class="info-item">
+          <h3>Email</h3>
+          <a href="mailto:pedantcosmetic@gmail.com">pedantcosmetic@gmail.com</a>
+        </div>
+        <div class="info-item">
+          <h3>Phone</h3>
+          <p>+972 54 642 9448</p>
         </div>
       </div>
-
-      <div class="form-group">
-        <label class="form-label">Email</label>
-        <input type="email" class="form-input" required>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Write a message</label>
-        <input type="text" class="form-input">
-      </div>
-
-      <div class="checkbox-group">
-        <span class="privacy-text">
-          על ידי שליחת הטופס, אני מסכים/ה <a href="#" style="text-decoration:underline;">למדיניות הפרטיות</a> של Pedant Cosmetic
-        </span>
-        <input type="checkbox" required>
-      </div>
-
-      <div class="submit-container">
-        <button type="submit" class="submit-btn">Submit</button>
-      </div>
-
-    </form>
-  </div>
-</div>
+    </div>
+  </main>
 
   <footer class="site-footer">
-  <div class="footer-wrapper">
-
-    <!-- לוגו באמצע -->
-    <div class="footer-logo-area">
-      <img src="images/logo.png" class="footer-logo" alt="Pédant Cosmetic Logo">
-    </div>
-
-    <!-- קו הפרדה -->
-    <div class="footer-line"></div>
-
-    <!-- שתי העמודות עם קו אנכי -->
-    <div class="footer-columns">
-
-      <!-- עמודת הצהרות -->
-      <div class="footer-col-right" dir="rtl">
-        <p>הצהרת נגישות</p>
-        <p>הצהרת פרטיות</p>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="PÉDANT">
+          <p class="footer-text">The future of luxury skincare. Parisian precision, global vision.</p>
+        </div>
+        
+        <div>
+          <span class="footer-col-title">Navigate</span>
+          <ul class="footer-list">
+            <li><a href="index.html#vision">The Vision</a></li>
+            <li><a href="catalog.html">Collections</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <span class="footer-col-title">Support</span>
+          <ul class="footer-list">
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="#">Size Guide</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <span class="footer-col-title">Newsletter</span>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter email" class="newsletter-input">
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+          </form>
+        </div>
       </div>
-
-      <!-- קו ביניים אנכי -->
-      <div class="footer-middle-line"></div>
-
-      <!-- עמודת מייל + טלפון -->
-      <div class="footer-col-left">
-        <p>pedantcosmetic@gmail.com</p>
-        <p>Tel: 0546429448</p>
+      
+      <div class="footer-bottom">
+        <div>© 2026 PÉDANT PARIS. All rights reserved.</div>
       </div>
-
     </div>
-
-    <!-- אייקון אינסטגרם במרכז -->
-    <div class="footer-social">
-      <a href="https://www.instagram.com/merav_lavie_pedant?igsh=NHlvdTgxNm9peXd6" target="_blank">
-        <img src="images/instagram.png" class="footer-instagram" alt="Instagram">
-      </a>
-    </div>
-
-  </div>
-</footer>
+  </footer>
 
   <script src="JavaScript/auth.js"></script>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('reveal');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>

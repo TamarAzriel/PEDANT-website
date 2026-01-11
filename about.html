@@ -1,123 +1,152 @@
 <!doctype html>
-<html lang="en" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>About – PÉDANT Cosmetic</title>
+  <title>Our Story | PÉDANT Paris</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Lato:wght@300;400&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/luxury.css">
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">
-      <a href="index.html"><img src="images/logo.png" alt="PÉDANT Cosmetic Logo"></a>
-    </div>
+  <header class="luxury-header">
+    <nav class="nav-container">
+      <div class="header-left">
+        <a href="index.html" class="logo-text">
+          <img src="images/logo.png" alt="PÉDANT" class="logo-img">
+        </a>
+      </div>
 
-    <nav>
-      <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="catalog.html">CATALOG</a></li>
-        <li><a href="about.html">ABOUT</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li id="nav-login" style="display:none;"><a href="login.html">LOGIN</a></li>
-        <li id="nav-signup" style="display:none;"><a href="signup.html">SIGN UP</a></li>
-        <li id="nav-profile-item" style="display:none;"><a href="profile.html">PROFILE</a></li>
-        <li id="nav-logout" style="display:none;"><a href="#" onclick="logout(event)">LOGOUT</a></li>
-        <li><a href="cart.html"><img src="images/cart.png" class="cart-icon" alt="Cart"></a></li>
+      <ul class="nav-links hidden lg:flex">
+        <li><a href="index.html#vision" class="luxury-link">THE VISION</a></li>
+        <li><a href="catalog.html" class="luxury-link">COLLECTIONS</a></li>
+        <li><a href="about.html" class="luxury-link">ABOUT</a></li>
       </ul>
+
+      <div class="header-right">
+        <div class="auth-links">
+          <a href="login.html" id="nav-login" class="luxury-link">LOGIN</a>
+          <a href="signup.html" id="nav-signup" class="luxury-link">JOIN</a>
+        </div>
+        <a href="cart.html" class="cart-wrapper">
+          <img src="images/cart.png" alt="Cart" class="cart-icon">
+        </a>
+      </div>
     </nav>
   </header>
 
-  <div class="site-wrapper">
-
-    <!-- ABOUT PAGE CONTENT -->
-    <section class="about-section">
-
-      <div class="about-text">
-        <h2>מחפשים מוצרי טיפוח איכותיים, מפנקים ובעלי תוצאות אמיתיות?</h2>
-
-        <p>
-        אני מירב לביא, קוסמטיקאית מוסמכת עם ניסיון של שנים בטיפולי עור ומוצרים מקצועיים.
-        אני מציעה לכם סדרת מוצרי טיפוח איכותיים, המבוססים על פורמולות מתקדמות,
-        מרכיבים פעילים ומוצרים בעלי יעילות שמספקים תוצאות נראות לעין.
+  <main>
+    <!-- About Hero (Vision Section Style) -->
+    <section class="vision-section" style="padding-top: 240px; background-color: hsl(var(--background));">
+      <div class="vision-container reveal-on-scroll">
+        <span class="luxury-subheading block mb-8">OUR STORY</span>
+        <h1 class="luxury-display" style="text-transform: none; margin-bottom: 2.5rem;">
+          The Art of<br>
+          <span style="opacity: 0.5;">Haute Esthétique</span>
+        </h1>
+        <p class="luxury-body text-muted-foreground" style="max-width: 700px; margin: 0 auto; opacity: 0.8; line-height: 1.8;">
+          I am Merav Lavie, a certified cosmetician with years of expertise in clinical skincare and high-end aesthetic treatments. My vision for PÉDANT was born from a simple philosophy: skincare should be as luxurious as it is effective.
         </p>
-
-        <p>
-        המוצרים מותאמים לסוגי עור שונים, משלבים יוקרה, איכות וניקיון אסתטי,
-        ומציעים חוויית טיפוח מפנקת בבית – ממש כמו בטיפול במכון מקצועי.
-        </p>
-
-<p>
-הערכות והמוצרים זמינים לרכישה אישית, כמתנה יוקרתית, או לשילוב בשגרת טיפוח יומית.
-</p>
-
+        <div class="vision-divider reveal-on-scroll" style="width: 80px; margin-top: 60px;"></div>
       </div>
+    </section>
 
-      <div class="about-divider">
-        <span class="line"></span>
-        <span class="about-divider-title">BEHIND THE BRAND</span>
-        <span class="line"></span>
+    <!-- Visual Grid (The Atmosphere Style) -->
+    <section class="visual-grid-section">
+      <div class="text-center mb-16 reveal-on-scroll">
+        <span class="luxury-subheading">THE CRAFT</span>
       </div>
-
-      <div class="about-image-wrapper">
-        <div class="about-image-card">
-          <img src="images/imagesbox.png" alt="Pédant Gift Box">
+      <div class="visual-grid-container">
+        <!-- Using row-2 for the asymmetrical look from the React code you sent -->
+        <div class="grid-item row-2 reveal-on-scroll" style="transition-delay: 0.1s;">
+          <img src="images/grid-1.jpg" class="grid-img" alt="Formulation">
+        </div>
+        <div class="grid-item reveal-on-scroll" style="transition-delay: 0.2s;">
+          <img src="images/grid-2.jpg" class="grid-img" alt="Treatment">
+        </div>
+        <div class="grid-item reveal-on-scroll" style="transition-delay: 0.3s;">
+          <img src="images/grid-3.jpg" class="grid-img" alt="Clinical Lab">
+        </div>
+        <div class="grid-item row-2 reveal-on-scroll" style="transition-delay: 0.4s;">
+          <img src="images/grid-4.jpg" class="grid-img" alt="Pure Essence">
         </div>
       </div>
-
     </section>
-      <footer class="site-footer">
-  <div class="footer-wrapper">
 
-    <!-- לוגו באמצע -->
-    <div class="footer-logo-area">
-      <img src="images/logo.png" class="footer-logo" alt="Pédant Cosmetic Logo">
-    </div>
-
-    <!-- קו הפרדה -->
-    <div class="footer-line"></div>
-
-    <!-- שתי העמודות עם קו אנכי -->
-    <div class="footer-columns">
-
-      <!-- עמודת הצהרות -->
-      <div class="footer-col-right" dir="rtl">
-        <p>הצהרת נגישות</p>
-        <p>הצהרת פרטיות</p>
+    <!-- Philosophy (Vision Section Content) -->
+    <section class="vision-section" style="padding: 120px 5%; border-top: 1px solid hsl(var(--border));">
+      <div class="vision-container reveal-on-scroll">
+        <h2 class="luxury-display" style="font-size: 2.2rem; text-transform: none; margin-bottom: 2rem;">
+          Clinical Science Meets<br>
+          <span style="opacity: 0.5;">Parisian Elegance</span>
+        </h2>
+        <p class="luxury-body text-muted-foreground" style="max-width: 650px; margin: 0 auto; opacity: 0.7;">
+          Our collections are curated with advanced formulas and active ingredients that deliver visible, professional results from the comfort of your home. Whether for personal use or as an elevated gift, PÉDANT represents the perfect intersection of clinical science and Parisian elegance.
+        </p>
       </div>
+    </section>
+  </main>
 
-      <!-- קו ביניים אנכי -->
-      <div class="footer-middle-line"></div>
-
-      <!-- עמודת מייל + טלפון -->
-      <div class="footer-col-left">
-        <p>pedantcosmetic@gmail.com</p>
-        <p>Tel: 0546429448</p>
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="PÉDANT">
+          <p class="footer-text">The future of luxury skincare. Parisian precision, global vision.</p>
+        </div>
+        
+        <div>
+          <span class="footer-col-title">Navigate</span>
+          <ul class="footer-list">
+            <li><a href="index.html#vision">The Vision</a></li>
+            <li><a href="catalog.html">Collections</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <span class="footer-col-title">Support</span>
+          <ul class="footer-list">
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Size Guide</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <span class="footer-col-title">Newsletter</span>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter email" class="newsletter-input">
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+          </form>
+        </div>
       </div>
-
+      
+      <div class="footer-bottom">
+        <div>© 2026 PÉDANT PARIS. All rights reserved.</div>
+        <div class="footer-socials">
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+        </div>
+        <div class="footer-legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
     </div>
-
-    <!-- אייקון אינסטגרם במרכז -->
-    <div class="footer-social">
-      <a href="https://www.instagram.com/merav_lavie_pedant?igsh=NHlvdTgxNm9peXd6" target="_blank">
-        <img src="images/instagram.png" class="footer-instagram" alt="Instagram">
-      </a>
-    </div>
-
-  </div>
-</footer>
-
-
-
-
-
-  </div>
+  </footer>
 
   <script src="JavaScript/auth.js"></script>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('reveal');
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>

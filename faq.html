@@ -1,120 +1,163 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr"> <head>
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
   <meta charset="utf-8">
-  <title>FAQ – PÉDANT Cosmetic</title>
+  <title>FAQ | PÉDANT Paris</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Lato:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/luxury.css">
+  <style>
+    .faq-main { padding-top: 160px; min-height: 80vh; background-color: hsl(var(--background)); padding-bottom: 120px; }
+    .faq-container { max-width: 800px; margin: 0 auto; padding: 0 5%; }
+  </style>
 </head>
 
 <body>
-  <header>
-    <div class="logo">
-      <a href="index.html"><img src="images/logo.png" alt="PÉDANT Cosmetic Logo"></a>
-    </div>
 
-    <nav>
-      <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="catalog.html">CATALOG</a></li>
-        <li><a href="about.html">ABOUT</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li id="nav-login" style="display:none;"><a href="login.html">LOGIN</a></li>
-        <li id="nav-signup" style="display:none;"><a href="signup.html">SIGN UP</a></li>
-        <li id="nav-profile-item" style="display:none;"><a href="profile.html">PROFILE</a></li>
-        <li id="nav-logout" style="display:none;"><a href="#" onclick="logout(event)">LOGOUT</a></li>
-        <li><a href="cart.html"><img src="images/cart.png" class="cart-icon" alt="Cart"></a></li>
+  <header class="luxury-header">
+    <nav class="nav-container">
+      <div class="header-left">
+        <a href="index.html" class="logo-text">
+          <img src="images/logo.png" alt="PÉDANT" class="logo-img">
+        </a>
+      </div>
+
+      <ul class="nav-links hidden lg:flex">
+        <li><a href="index.html#vision" class="luxury-link">THE VISION</a></li>
+        <li><a href="catalog.html" class="luxury-link">COLLECTIONS</a></li>
+        <li><a href="about.html" class="luxury-link">ABOUT</a></li>
       </ul>
+
+      <div class="header-right">
+        <div class="auth-links">
+          <a href="login.html" id="nav-login" class="luxury-link">LOGIN</a>
+          <a href="signup.html" id="nav-signup" class="luxury-link">JOIN</a>
+        </div>
+        <a href="cart.html" class="cart-wrapper">
+          <img src="images/cart.png" alt="Cart" class="cart-icon">
+        </a>
+      </div>
     </nav>
   </header>
 
-  <div class="site-wrapper">
-    <main class="faq-section" dir="rtl"> <h1 class="faq-title">שאלות ותשובות נפוצות</h1>
-      
-      <div class="faq-container">
+  <main class="faq-main">
+    <div class="faq-container">
+      <div class="text-center mb-20 reveal-on-scroll">
+        <span class="luxury-subheading block mb-4">ASSISTANCE</span>
+        <h1 class="luxury-display" style="font-size: 3rem;">Frequently Asked Questions</h1>
+      </div>
+
+      <div class="accordion">
+        <div class="accordion-item reveal-on-scroll">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span>What makes PÉDANT different from other luxury skincare brands?</span>
+            <span>+</span>
+          </button>
+          <div class="accordion-content">
+            <p>PÉDANT combines Parisian aesthetic excellence with advanced clinical biotechnology. Our formulations undergo rigorous testing and are designed for maximum efficacy with a focus on skin health and longevity.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item reveal-on-scroll" style="transition-delay: 0.1s;">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span>Are your products suitable for sensitive skin?</span>
+            <span>+</span>
+          </button>
+          <div class="accordion-content">
+            <p>Yes, all PÉDANT products are dermatologist-tested and formulated without common irritants. We recommend starting with our Cellular Serum for sensitive skin types and gradually introducing other specialized treatments.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item reveal-on-scroll" style="transition-delay: 0.2s;">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span>How do I know which collection is right for my skin?</span>
+            <span>+</span>
+          </button>
+          <div class="accordion-content">
+            <p>Our collections are categorized by skin needs: Biopeptix for cellular renewal and peptides, Dermalosophy for clinical precision, and Renew for therapeutic hydration. We recommend consulting with your aesthetician for a personalized regimen.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item reveal-on-scroll" style="transition-delay: 0.3s;">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span>Are PÉDANT products cruelty-free?</span>
+            <span>+</span>
+          </button>
+          <div class="accordion-content">
+            <p>Absolutely. PÉDANT is committed to ethical beauty. We do not test our products or ingredients on animals, ensuring the highest standards of cruelty-free formulation.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item reveal-on-scroll" style="transition-delay: 0.4s;">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span>What is your shipping and return policy?</span>
+            <span>+</span>
+          </button>
+          <div class="accordion-content">
+            <p>We offer complimentary worldwide shipping on all orders. Returns are accepted within 30 days of purchase, provided products are unused and in their original luxury packaging.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="PÉDANT">
+          <p class="footer-text">The future of luxury skincare. Parisian precision, global vision.</p>
+        </div>
         
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>תוך כמה זמן מגיע המשלוח?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">
-            זמן המשלוח הוא בדרך כלל בין 3 ל-5 ימי עסקים. אנו עושים את מירב המאמצים כדי שהמוצרים יגיעו אליך במהירות המרבית, ארוזים בקפידה.
-          </div>
+        <div>
+          <span class="footer-col-title">Navigate</span>
+          <ul class="footer-list">
+            <li><a href="index.html#vision">The Vision</a></li>
+            <li><a href="catalog.html">Collections</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
         </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>האם המוצרים מתאימים לעור רגיש?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">
-            רוב המוצרים שלנו מותאמים למגוון סוגי עור, כולל עור רגיש. עם זאת, אנו ממליצים תמיד לקרוא את רשימת הרכיבים המלאה בכל דף מוצר ולהתייעץ איתנו במידת הצורך.
-          </div>
+        
+        <div>
+          <span class="footer-col-title">Support</span>
+          <ul class="footer-list">
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Size Guide</a></li>
+          </ul>
         </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>כיצד ניתן לממש קוד קופון?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">
-            ניתן להזין את קוד הקופון בעמוד "העגלה שלי" לפני המעבר לתשלום. יש להקליד את הקוד בשדה המיועד וללחוץ על "הפעל". ההנחה תתעדכן מיידית.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>מהי מדיניות ההחזרות?</span>
-            <span class="faq-icon">+</span>
-          </div>
-          <div class="faq-answer">
-            ניתן להחזיר מוצרים סגורים באריזתם המקורית תוך 14 יום מקבלת המשלוח, בהתאם לתקנון החברה. יש ליצור קשר עם שירות הלקוחות לתיאום ההחזרה.
-          </div>
-        </div>
-
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-wrapper">
-        <div class="footer-logo-area">
-          <img src="images/logo.png" class="footer-logo" alt="Pédant Cosmetic Logo">
-        </div>
-        <div class="footer-line"></div>
-        <div class="footer-columns">
-          <div class="footer-col-right" dir="rtl">
-            <p>הצהרת נגישות</p>
-            <p>הצהרת פרטיות</p>
-          </div>
-          <div class="footer-middle-line"></div>
-          <div class="footer-col-left">
-            <p>pedantcosmetic@gmail.com</p>
-            <p>Tel: 0546429448</p>
-          </div>
-        </div>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/merav_lavie_pedant?igsh=NHlvdTgxNm9peXd6" target="_blank">
-            <img src="images/instagram.png" class="footer-instagram" alt="Instagram">
-          </a>
+        
+        <div>
+          <span class="footer-col-title">Newsletter</span>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter email" class="newsletter-input">
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+          </form>
         </div>
       </div>
-    </footer>
-
-  </div>
+      
+      <div class="footer-bottom">
+        <div>© 2026 PÉDANT PARIS. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
 
   <script src="JavaScript/auth.js"></script>
   <script>
-    // סקריפט פשוט לפתיחת/סגירת שאלות
-    document.querySelectorAll('.faq-item').forEach(item => {
-      item.addEventListener('click', () => {
-        // סגירת כל האחרים אם רוצים (אופציונלי)
-        // document.querySelectorAll('.faq-item').forEach(i => { if(i!==item) i.classList.remove('active'); });
-        
-        item.classList.toggle('active');
+    function toggleAccordion(el) {
+      const item = el.parentElement;
+      const isActive = item.classList.contains('active');
+      document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+      if (!isActive) item.classList.add('active');
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('reveal');
       });
-    });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>

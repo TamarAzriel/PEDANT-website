@@ -1,106 +1,202 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <title>העגלה שלי – PÉDANT Cosmetic</title>
+  <meta charset="utf-8">
+  <title>Your Bag | PÉDANT Paris</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Lato:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/luxury.css">
+  <style>
+    .cart-main { padding-top: 240px; min-height: 80vh; background-color: #ffffff; padding-bottom: 120px; }
+    .cart-container { max-width: 1000px; margin: 0 auto; padding: 0 5%; }
+    
+    .cart-header { text-align: center; margin-bottom: 100px; }
+    .cart-header .luxury-display { font-size: 4rem; margin-top: 1.5rem; }
+    
+    .cart-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 6rem; align-items: start; }
+    
+    .cart-items-list { border-top: 1px solid rgba(0,0,0,0.05); }
+    .cart-item { 
+      display: flex; gap: 2.5rem; padding: 3rem 0; 
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      animation: fade-up 1s ease-out forwards;
+    }
+    
+    .cart-item-img-wrapper { 
+      width: 120px; aspect-ratio: 1/1; background: #f9f9f9; 
+      border-radius: 15px; overflow: hidden; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cart-item-img { max-width: 80%; max-height: 80%; object-fit: contain; mix-blend-mode: multiply; }
+    
+    .cart-item-info { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .cart-item-brand { font-size: 7px; letter-spacing: 0.4em; opacity: 0.3; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .cart-item-name { font-size: 1rem; font-weight: 300; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1rem; }
+    .cart-item-price { font-size: 0.85rem; font-weight: 400; opacity: 0.6; }
+    
+    .cart-item-actions { display: flex; align-items: center; }
+    
+    .cart-summary-v2 { 
+      background: #f2f2f2; 
+      padding: 4rem; 
+      border-radius: 40px; 
+      position: sticky; 
+      top: 180px;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+    .summary-title { font-size: 0.75rem; letter-spacing: 0.4em; opacity: 0.4; text-transform: uppercase; margin-bottom: 3.5rem; display: block; font-weight: 500; }
+    
+    .summary-row { display: flex; justify-content: space-between; margin-bottom: 1.5rem; font-size: 0.8rem; letter-spacing: 0.1em; }
+    .summary-row.total { margin-top: 3rem; pt-6; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 2rem; font-weight: 500; font-size: 1.1rem; }
+    
+    .coupon-section { margin-top: 3rem; }
+    .coupon-input-v2 { 
+      width: 100%; background: transparent; border: none; 
+      border-bottom: 1px solid rgba(0,0,0,0.1); padding: 1rem 0;
+      font-family: var(--font-main); font-size: 0.75rem; letter-spacing: 0.2em; outline: none;
+      text-transform: uppercase; transition: border-color 0.4s;
+    }
+    .coupon-input-v2:focus { border-bottom-color: #000; }
+    
+    .btn-checkout-v2 { 
+      width: 100%; background: #000; color: #fff; border: none; padding: 1.5rem;
+      font-size: 0.7rem; letter-spacing: 0.4em; text-transform: uppercase;
+      margin-top: 4rem; cursor: pointer; transition: all 0.4s; text-align: center; text-decoration: none; display: block;
+    }
+    .btn-checkout-v2:hover { background: #222; letter-spacing: 0.5em; }
+    
+    .btn-clear-v2 { 
+      background: none; border: none; font-size: 8px; letter-spacing: 0.3em; 
+      opacity: 0.3; cursor: pointer; margin-top: 2rem; width: 100%; transition: opacity 0.3s;
+    }
+    .btn-clear-v2:hover { opacity: 1; }
+
+    @media (max-width: 1000px) {
+      .cart-grid { grid-template-columns: 1fr; gap: 4rem; }
+      .cart-summary-v2 { position: static; }
+    }
+  </style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">
-      <a href="index.html"><img src="images/logo.png" alt="PÉDANT Cosmetic Logo"></a>
-    </div>
+  <header class="luxury-header" id="main-header">
+    <nav class="nav-container">
+      <div class="header-left">
+        <a href="index.html" class="logo-text">
+          <img src="images/logo.png" alt="PÉDANT" class="logo-img">
+        </a>
+      </div>
 
-    <nav>
-      <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="catalog.html">CATALOG</a></li>
-        <li><a href="about.html">ABOUT</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li id="nav-login" style="display:none;"><a href="login.html">LOGIN</a></li>
-        <li id="nav-signup" style="display:none;"><a href="signup.html">SIGN UP</a></li>
-        <li id="nav-profile-item" style="display:none;"><a href="profile.html">PROFILE</a></li>
-        <li id="nav-logout" style="display:none;"><a href="#" onclick="logout(event)">LOGOUT</a></li>
-        <li><a href="cart.html"><img src="images/cart.png" class="cart-icon" alt="Cart"></a></li>
+      <ul class="nav-links hidden lg:flex">
+        <li><a href="index.html#vision" class="luxury-link">THE VISION</a></li>
+        <li><a href="catalog.html" class="luxury-link">COLLECTIONS</a></li>
+        <li><a href="about.html" class="luxury-link">ABOUT</a></li>
       </ul>
+
+      <div class="header-right">
+        <div class="auth-links">
+          <a href="login.html" id="nav-login" class="luxury-link">LOGIN</a>
+          <a href="signup.html" id="nav-signup" class="luxury-link">JOIN</a>
+          <a href="profile.html" id="nav-profile" class="luxury-link" style="display: none;">PROFILE</a>
+          <a href="#" id="nav-logout" class="luxury-link" style="display: none;" onclick="logout(event)">LOGOUT</a>
+        </div>
+        <a href="cart.html" class="cart-wrapper">
+          <img src="images/cart.png" alt="Cart" class="cart-icon">
+        </a>
+      </div>
     </nav>
   </header>
 
-  <div class="site-wrapper">
-    <main>
-      <h1 class="cart-page-title">העגלה שלך</h1>
-
-      <div id="cart-items"></div>
-
-      <div class="cart-summary-box">
-        <div class="summary-row">
-          <span>סכום ביניים:</span>
-          <span id="cart-subtotal-val">₪0</span>
-        </div>
-        
-        <div class="summary-row" id="discount-row" style="display:none; color: green;">
-          <span>הנחה:</span>
-          <span id="cart-discount-val">-₪0</span>
-        </div>
-
-        <div class="summary-row total">
-          <span>סה"כ לתשלום:</span>
-          <span id="cart-total-final">₪0</span>
-        </div>
-
-        <div class="coupon-section">
-          <label style="font-size:14px; font-weight:bold;">יש לך קוד קופון?</label>
-          <div class="coupon-box">
-            <input type="text" id="coupon-code" class="coupon-input" placeholder="הכנס קוד כאן">
-            <button onclick="applyCoupon()" class="coupon-btn">הפעל</button>
-          </div>
-          <div id="coupon-message" class="coupon-message"></div>
-        </div>
+  <main class="cart-main">
+    <div class="cart-container">
+      <div class="cart-header reveal-on-scroll">
+        <span class="luxury-subheading" style="opacity: 0.2; letter-spacing: 0.6em;">CURATED SELECTION</span>
+        <h1 class="luxury-display">Your Bag</h1>
       </div>
 
-      <div class="cart-actions">
-        <button id="clear-cart" class="btn-clear">רוקן עגלה</button>
-        <a href="checkout.html" class="btn-checkout">המשך לתשלום</a>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-wrapper">
-        <div class="footer-logo-area">
-          <img src="images/logo.png" class="footer-logo" alt="Pédant Cosmetic Logo">
+      <div class="cart-grid">
+        <div class="cart-items-list" id="cart-items">
+          <!-- Populated by cart.js -->
         </div>
-        <div class="footer-line"></div>
-        <div class="footer-columns">
-          <div class="footer-col-right" dir="rtl">
-            <p>הצהרת נגישות</p>
-            <p>הצהרת פרטיות</p>
+
+        <div class="cart-summary-v2 reveal-on-scroll">
+          <span class="summary-title">Summary</span>
+          <div class="summary-row">
+            <span>SUBTOTAL</span>
+            <span id="cart-subtotal-val">€0.00</span>
           </div>
-          <div class="footer-middle-line"></div>
-          <div class="footer-col-left">
-            <p>pedantcosmetic@gmail.com</p>
-            <p>Tel: 0546429448</p>
+          <div class="summary-row" id="discount-row" style="display: none; color: hsla(var(--foreground), 0.4);">
+            <span>PROMO DISCOUNT</span>
+            <span id="cart-discount-val">-€0.00</span>
           </div>
-        </div>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/merav_lavie_pedant?igsh=NHlvdTgxNm9peXd6" target="_blank">
-            <img src="images/instagram.png" class="footer-instagram" alt="Instagram">
-          </a>
+          
+          <div class="coupon-section">
+            <input type="text" id="coupon-code" class="coupon-input-v2" placeholder="PROMO CODE">
+            <button onclick="applyCoupon()" class="btn-clear-v2" style="opacity: 0.6; text-align: left; margin-top: 10px;">APPLY CODE</button>
+            <div id="coupon-message" style="font-size: 8px; margin-top: 10px; letter-spacing: 0.1em; opacity: 0.5;"></div>
+            <p style="font-size: 7px; opacity: 0.2; margin-top: 5px; letter-spacing: 0.1em;">TRY: PEDANT20</p>
+          </div>
+
+          <div class="summary-row total">
+            <span>TOTAL</span>
+            <span id="cart-total-final">€0.00</span>
+          </div>
+
+          <a href="checkout.html" class="btn-checkout-v2">PROCEED TO CHECKOUT</a>
+          <button id="clear-cart" class="btn-clear-v2">CLEAR EVERYTHING</button>
         </div>
       </div>
-    </footer>
+      
+      <div style="text-align: center; margin-top: 8rem;">
+        <a href="catalog.html" class="luxury-link" style="font-size: 9px; opacity: 0.3;">CONTINUE BROWSING</a>
+      </div>
+    </div>
+  </main>
 
-  </div>
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="PÉDANT">
+          <p class="footer-text">The future of luxury skincare. Parisian precision, global vision.</p>
+        </div>
+        <div>
+          <span class="footer-col-title">Navigate</span>
+          <ul class="footer-list">
+            <li><a href="index.html#vision">The Vision</a></li>
+            <li><a href="catalog.html">Collections</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="footer-col-title">Newsletter</span>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter email" class="newsletter-input">
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 PÉDANT PARIS.</div>
+      </div>
+    </div>
+  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="JavaScript/auth.js"></script>
-  <script src="JavaScript/products.js"></script> 
+  <script src="JavaScript/products.js"></script>
   <script src="JavaScript/cart.js"></script>
+  <script src="JavaScript/auth.js"></script>
+  <script>
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('main-header');
+      if (window.scrollY > 50) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
 
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('reveal'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>

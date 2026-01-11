@@ -2,112 +2,201 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>Login – PÉDANT Cosmetic</title>
+  <title>Login | PÉDANT Paris</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/luxury.css">
+  <style>
+    .auth-main { padding-top: 180px; min-height: 100vh; background-color: #ffffff; padding-bottom: 120px; display: flex; align-items: center; justify-content: center; }
+    .auth-container { width: 100%; max-width: 1100px; padding: 0 5%; }
+    
+    /* ה"כרטיסייה" הצפה והיוקרתית - גירסה משודרגת */
+    .luxury-auth-card {
+      background-color: #f2f2f2; /* אפור יוקרתי ומובהק יותר */
+      padding: 6rem;
+      border-radius: 4px; /* עיגול פינות עדין מאוד למראה כרטיסייה */
+      box-shadow: 0 60px 120px rgba(0,0,0,0.08), 0 0 1px rgba(0,0,0,0.1); /* צל חזק יותר להדגשת הציפה */
+      border: 1px solid rgba(0,0,0,0.03);
+      animation: fade-up 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    
+    /* קו דקורטיבי בראש הכרטיסייה */
+    .luxury-auth-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 2px;
+      background: #000;
+      opacity: 0.1;
+    }
+    
+    .auth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: start; }
+    
+    .auth-header { text-align: left; }
+    .auth-header h1 { font-weight: 200; font-size: 4rem; line-height: 1.1; margin-top: 1.5rem; letter-spacing: -0.02em; }
+    
+    .auth-form-area { padding-top: 1rem; }
+    .luxury-input-group { margin-bottom: 3.5rem; }
+    .luxury-input-group label { 
+      display: block; 
+      font-size: 9px; 
+      text-transform: uppercase; 
+      letter-spacing: 0.3em; 
+      color: hsla(var(--foreground), 0.4); 
+      margin-bottom: 0.75rem;
+    }
+    
+    .luxury-input { 
+      width: 100%; 
+      background: transparent; 
+      border: none; 
+      border-bottom: 1px solid hsla(var(--foreground), 0.1); 
+      padding: 0.75rem 0; 
+      font-family: var(--font-main); 
+      font-size: 1rem; 
+      font-weight: 300;
+      outline: none; 
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      letter-spacing: 0.02em;
+    }
+    .luxury-input:focus { border-bottom-color: hsl(var(--foreground)); padding-left: 10px; }
+    
+    .auth-btn { 
+      width: 100%; 
+      background: #000; 
+      color: #fff; 
+      border: none; 
+      padding: 1.5rem; 
+      text-transform: uppercase; 
+      letter-spacing: 0.4em; 
+      font-size: 0.7rem; 
+      margin-top: 1.5rem; 
+      cursor: pointer; 
+      transition: var(--transition);
+    }
+    .auth-btn:hover { background: #222; letter-spacing: 0.5em; }
+    
+    .auth-footer { margin-top: 3rem; opacity: 0.4; font-size: 0.75rem; font-weight: 300; letter-spacing: 0.05em; }
+    .auth-footer a { color: #000; text-decoration: none; font-weight: 500; border-bottom: 1px solid rgba(0,0,0,0.1); margin-left: 5px; }
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      .luxury-auth-card { padding: 4rem 2rem; }
+      .auth-grid { grid-template-columns: 1fr; gap: 4rem; }
+      .auth-header h1 { font-size: 2.5rem; }
+    }
+  </style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">
-      <a href="index.html"><img src="images/logo.png" alt="PÉDANT Cosmetic Logo"></a>
-    </div>
+  <header class="luxury-header">
+    <nav class="nav-container">
+      <div class="header-left">
+        <a href="index.html" class="logo-text">
+          <img src="images/logo.png" alt="PÉDANT" class="logo-img">
+        </a>
+      </div>
 
-    <nav>
-      <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="catalog.html">CATALOG</a></li>
-        <li><a href="about.html">ABOUT</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li id="nav-login" style="display:none;"><a href="login.html">LOGIN</a></li>
-        <li id="nav-signup" style="display:none;"><a href="signup.html">SIGN UP</a></li>
-        <li id="nav-profile-item" style="display:none;"><a href="profile.html">PROFILE</a></li>
-        <li id="nav-logout" style="display:none;"><a href="#" onclick="logout(event)">LOGOUT</a></li>
-        <li><a href="cart.html"><img src="images/cart.png" class="cart-icon" alt="Cart"></a></li>
+      <ul class="nav-links hidden lg:flex">
+        <li><a href="index.html#vision" class="luxury-link">THE VISION</a></li>
+        <li><a href="catalog.html" class="luxury-link">COLLECTIONS</a></li>
+        <li><a href="about.html" class="luxury-link">ABOUT</a></li>
       </ul>
+
+      <div class="header-right">
+        <div class="auth-links">
+          <a href="login.html" id="nav-login" class="luxury-link">LOGIN</a>
+          <a href="signup.html" id="nav-signup" class="luxury-link">JOIN</a>
+        </div>
+        <a href="cart.html" class="cart-wrapper">
+          <img src="images/cart.png" alt="Cart" class="cart-icon">
+        </a>
+      </div>
     </nav>
   </header>
 
-  <div class="site-wrapper">
-    <section class="auth-section">
-      <h2>Login</h2>
+  <main class="auth-main">
+    <div class="auth-container">
+      <div class="luxury-auth-card">
+        <div class="auth-grid">
+          <div class="auth-header">
+            <span class="luxury-subheading">WELCOME BACK</span>
+            <h1 class="luxury-display">Login to Your<br>Account</h1>
+            <div class="auth-footer">
+              New to PÉDANT? <a href="signup.html">Create an Account</a>
+            </div>
+          </div>
+          
+          <div class="auth-form-area">
+            <form id="login-form">
+              <div class="luxury-input-group">
+                <label>Email Address</label>
+                <input type="email" id="login-email" class="luxury-input" placeholder="EMAIL@EXAMPLE.COM" required>
+              </div>
+              
+              <div class="luxury-input-group">
+                <label>Password</label>
+                <input type="password" id="login-password" class="luxury-input" placeholder="••••••••" required>
+              </div>
 
-      <div class="test-info" style="background-color: #f0f8ff; border-left: 4px solid #2196F3; padding: 15px; margin-bottom: 20px; border-radius: 4px;">
-        <p style="margin: 0; font-size: 14px; color: #333;">
-          <strong>לבדיקה בלבד:</strong><br>
-          Email: test@example.com<br>
-          Password: 123456
-        </p>
+              <button type="submit" class="auth-btn">LOGIN</button>
+            </form>
+          </div>
+        </div>
       </div>
-
-      <form class="auth-form" id="login-form">
-        <label>
-          Email:
-          <input type="email" id="login-email" required>
-        </label>
-
-        <label>
-          Password:
-          <input type="password" id="login-password" required>
-        </label>
-
-        <button type="submit">Login</button>
-
-        <p class="auth-switch">
-          Don't have an account?
-          <a href="signup.html">Sign up</a>
-        </p>
-      </form>
-
-
-    </section>
-      <footer class="site-footer">
-  <div class="footer-wrapper">
-
-    <!-- לוגו באמצע -->
-    <div class="footer-logo-area">
-      <img src="images/logo.png" class="footer-logo" alt="Pédant Cosmetic Logo">
     </div>
+  </main>
 
-    <!-- קו הפרדה -->
-    <div class="footer-line"></div>
-
-    <!-- שתי העמודות עם קו אנכי -->
-    <div class="footer-columns">
-
-      <!-- עמודת הצהרות -->
-      <div class="footer-col-right" dir="rtl">
-        <p>הצהרת נגישות</p>
-        <p>הצהרת פרטיות</p>
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo.png" alt="PÉDANT">
+          <p class="footer-text">The future of luxury skincare. Parisian precision, global vision.</p>
+        </div>
+        
+        <div>
+          <span class="footer-col-title">Navigate</span>
+          <ul class="footer-list">
+            <li><a href="index.html#vision">The Vision</a></li>
+            <li><a href="catalog.html">Collections</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <span class="footer-col-title">Support</span>
+          <ul class="footer-list">
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="#">Size Guide</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <span class="footer-col-title">Newsletter</span>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter email" class="newsletter-input">
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+          </form>
+        </div>
       </div>
-
-      <!-- קו ביניים אנכי -->
-      <div class="footer-middle-line"></div>
-
-      <!-- עמודת מייל + טלפון -->
-      <div class="footer-col-left">
-        <p>pedantcosmetic@gmail.com</p>
-        <p>Tel: 0546429448</p>
+      
+      <div class="footer-bottom">
+        <div>© 2026 PÉDANT PARIS. All rights reserved.</div>
       </div>
-
     </div>
-
-    <!-- אייקון אינסטגרם במרכז -->
-    <div class="footer-social">
-      <a href="https://www.instagram.com/merav_lavie_pedant?igsh=NHlvdTgxNm9peXd6" target="_blank">
-        <img src="images/instagram.png" class="footer-instagram" alt="Instagram">
-      </a>
-    </div>
-
-  </div>
-</footer>
-
-
-  </div>
+  </footer>
 
   <script src="JavaScript/auth.js"></script>
 </body>
