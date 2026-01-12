@@ -90,8 +90,8 @@ function renderCart() {
 
   if (cart.length === 0) {
     container.innerHTML = `<div style="padding:100px 0; text-align:center; opacity:0.3;">Your bag is empty.</div>`;
-    if (subtotalVal) subtotalVal.textContent = "€0.00";
-    if (totalVal) totalVal.textContent = "€0.00";
+    if (subtotalVal) subtotalVal.textContent = "NIS 0.00";
+    if (totalVal) totalVal.textContent = "NIS 0.00";
     if (discountRow) discountRow.style.display = "none";
     return;
   }
@@ -107,7 +107,7 @@ function renderCart() {
         <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
           <span style="font-size:7px; letter-spacing:0.4em; opacity:0.3; text-transform:uppercase; margin-bottom:0.5rem;">${item.brand}</span>
           <h3 style="font-size:1rem; font-weight:300; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:0.5rem;">${item.name}</h3>
-          <div style="font-size:0.85rem; opacity:0.6;">€${item.price.toFixed(2)}</div>
+          <div style="font-size:0.85rem; opacity:0.6;">NIS ${item.price.toFixed(2)}</div>
         </div>
         <div style="display:flex; align-items:center;">
           <button onclick="removeCartItem(${index})" style="background:none; border:none; font-size:8px; opacity:0.3; letter-spacing:0.2em; cursor:pointer; text-transform:uppercase;">Remove</button>
@@ -117,12 +117,12 @@ function renderCart() {
   }).join("");
 
   const discountAmount = parseFloat(sessionStorage.getItem("cartDiscount")) || 0;
-  if (subtotalVal) subtotalVal.textContent = "€" + subtotal.toFixed(2);
+  if (subtotalVal) subtotalVal.textContent = "NIS " + subtotal.toFixed(2);
   if (discountAmount > 0 && discountRow) {
     discountRow.style.display = "flex";
-    discountVal.textContent = "-€" + discountAmount.toFixed(2);
+    discountVal.textContent = "-NIS " + discountAmount.toFixed(2);
   }
-  if (totalVal) totalVal.textContent = "€" + (subtotal - discountAmount).toFixed(2);
+  if (totalVal) totalVal.textContent = "NIS " + (subtotal - discountAmount).toFixed(2);
 }
 
 window.removeCartItem = function(index) {

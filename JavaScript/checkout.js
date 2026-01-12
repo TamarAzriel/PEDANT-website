@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="item-name">${item.name}</div>
                 <div class="item-qty">Qty: ${qty}</div>
             </div>
-            <div class="item-price">€${itemTotal}</div>
+            <div class="item-price">NIS ${itemTotal}</div>
         `;
 
         summaryList.appendChild(itemDiv);
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // עדכון הסכום הכולל
     if (totalPriceElement) {
-        totalPriceElement.textContent = "€" + total;
+        totalPriceElement.textContent = "NIS " + total;
     }
 
     // 3. טיפול בטופס (סימולציה של הצלחה יוקרתית)
@@ -60,7 +60,26 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 // יצירת מספר הזמנה רנדומלי יוקרתי
                 const orderId = "PD" + Math.floor(100000 + Math.random() * 900000);
+                const orderDate = new Date().toLocaleDateString('en-GB');
                 
+                // שמירת ההזמנה בהיסטוריה של המשתמש
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                if (currentUser) {
+                    const orderRecord = {
+                        id: orderId,
+                        date: orderDate,
+                        total: total,
+                        items: cart.map(item => ({ name: item.name, price: item.price }))
+                    };
+                    
+                    let allOrders = JSON.parse(localStorage.getItem('allOrders')) || {};
+                    if (!allOrders[currentUser.email]) {
+                        allOrders[currentUser.email] = [];
+                    }
+                    allOrders[currentUser.email].unshift(orderRecord); // מוסיף להתחלה
+                    localStorage.setItem('allOrders', JSON.stringify(allOrders));
+                }
+
                 // יצירת ה-Overlay של ההצלחה ב-JS (כדי למנוע שינויים ב-HTML)
                 const overlay = document.createElement('div');
                 overlay.className = 'success-overlay-v2';
